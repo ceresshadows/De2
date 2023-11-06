@@ -192,6 +192,7 @@ def fuse_and_map(all_series, average_series_1, event_template_1, ids_to_check, f
 
     # 随机选择4个id
     ids_to_plot = random.sample(ids_to_check, 4)
+    # ids_to_plot = [30,38,46,64]
 
     # 获取这4个id对应的序列
     selected_series = [all_series[ids_to_check.index(i)] for i in ids_to_plot]
@@ -201,17 +202,17 @@ def fuse_and_map(all_series, average_series_1, event_template_1, ids_to_check, f
     fig, axes = plt.subplots(len(ids_to_plot) + 1, 1, figsize=(15, 7))
 
     # 绘制融合的时间序列及其事件
-    axes[0].plot(average_series_1, label='Averaged Series')
+    axes[0].plot(average_series_1, label='Fused Series')
     for event in event_template_1:
-        axes[0].axvline(event, color='red', linestyle='--', label='Event')
-    axes[0].set_title("Averaged Series with "+str(feature))
+        axes[0].axvline(event, color='red', linestyle='--', label='Breakpoint')
+    axes[0].set_title("Fused Series with "+str(feature))
     axes[0].legend()
 
     # 绘制选定的原始序列及其映射事件
     for idx, (series, ax) in enumerate(zip(selected_series, axes[1:])):
         ax.plot(series, label='Original Series')
         for event in selected_original_events[idx]:
-            ax.axvline(event, color='red', linestyle='--', label='Mapped Event')
+            ax.axvline(event, color='red', linestyle='--', label='Mapped-back Breakpoint')
         ax.set_title(f"ID: {ids_to_plot[idx]}")
         ax.legend()
 
@@ -447,7 +448,8 @@ def process_one_feature(df, y_df, feature):
         current_label = y_df.loc[ids_all.index(ids_to_check[idx]), '0']
         
         # 在图表标题中添加label信息
-        axis.set_title(f"ID: {ids_to_check[idx]}, Label: {current_label}")
+        # axis.set_title(f"ID: {ids_to_check[idx]}, Label: {current_label}")
+        axis.set_title(f"ID: {ids_to_check[idx]}, Label: {current_label}", loc='left')
 
     plt.tight_layout()
     plt.show()
@@ -487,13 +489,13 @@ feature_definitions = {
     'RelativeHeadingNPC1' : "abs(df['heading'] - df['NPC1Theta'])",
 }
 ### !!!!!!!!!!!!
-GPT_iter = 5
+GPT_iter = 1
 df = compute_and_fill_features(df, feature_definitions)
 # print(df['RelativeDistanceNPC1'])
 # ('brake', 0.5, 10),('speed_difference', 0.5, 10),('npc_theta', 2, 5),('relative_distance', 1, 10)
 ### 3.敏感数据用0.5,10；反之1.5,8
 df_proceed = pd.DataFrame()
-feature_list = [('NPC1LaneOffset',5, 8)] 
+feature_list = [('NPC1Theta',2.5, 8)] 
 # feature_list = [('brake', 0.5, 10),('npc_theta', 2, 5)] 
 
 for i, feature_set in enumerate(feature_list):
