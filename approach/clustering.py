@@ -378,7 +378,7 @@ def plot_events(tmp, axis, signal, feature, result):
         annotation_text = f"Rate: {change_rate:.2f}\nMagnitude: {change_magnitude:.2f}\nMean: {mean:.2f}\nConfidence: {confidence:.2f}"
         axis.annotate(annotation_text, xy=(start, signal[start]),
                       xytext=(0, 10), textcoords='offset points', arrowprops=dict(arrowstyle="->"),
-                      fontsize=8, ha='center')
+                      fontsize=12, ha='center')
         axis.axvline(x=start, linestyle='--', alpha=0.5)  # 在start点画竖线
         axis.axvline(x=end, linestyle='--', alpha=0.5)    # 在end点画竖线
 
