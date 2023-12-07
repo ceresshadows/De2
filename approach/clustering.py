@@ -36,28 +36,28 @@ def hierarchical_clustering_and_reference(one_label_all_series, threshold=5):
         elif np.all(np.isnan(ts)):
             print(f"Warning: Series at index {idx} contains only nans.")
     
-    # 找到最长的时间序列的长度
+    # Find the length of the longest time series
     max_len = max(len(ts) for ts in one_label_all_series)
 
-    # 将时间序列填充到相同的长度
+    # Fill the time series to the same length
     padded_series = [np.pad(ts, (0, max_len - len(ts)), 'constant', constant_values=np.nan) for ts in one_label_all_series]
 
-    # 将列表转换为 (n_ts, sz, 1) 形状的 3D numpy 数组
+    # Converts the list to a 3D numpy array of the shape (n_ts, sz, 1)
     X = to_time_series_dataset(padded_series)
 
-    # 数据预处理：将时间序列规范化为零均值和单位方差
+    # Data preprocessing: Normalizes the time series to zero mean and unit variance
     X = TimeSeriesScalerMeanVariance().fit_transform(X)
 
-    # 将3D数组转换为2D，以便我们可以使用SciPy的层次聚类
+    # Convert 3D arrays to 2D so that we can use SciPy's hierarchical clustering
     X_2d = np.squeeze(X, axis=2)
 
-    # 计算 DTW 距离矩阵
+    # Calculate the DTW distance matrix
     dist_matrix = cdist_dtw(X)
     # print(dist_matrix)
-    # 你的距离矩阵
+    # Your distance matrix
     dist_matrix = np.array([[0, 2, np.inf], [2, 0, 3], [np.inf, 3, 0]])
 
-    # 替换 dist_matrix 中的 inf 值为 10000
+    # Replace the inf value in dist_matrix with 10000
     dist_matrix[np.isinf(dist_matrix)] = 10000
 
     # Perform hierarchical clustering
@@ -66,31 +66,31 @@ def hierarchical_clustering_and_reference(one_label_all_series, threshold=5):
     # Get cluster labels
     labels = fcluster(linkage_matrix, t=threshold, criterion="distance")
 
-    # 找到包含最多时间序列的簇的标签
+    # Find the tag containing the cluster with the most time series
     (unique, counts) = np.unique(labels, return_counts=True)
     most_common_label = unique[np.argmax(counts)]
 
-    # 选择这个簇中的时间序列
+    # Select the time series in this cluster
     selected_series = [s for s, l in zip(one_label_all_series, labels) if l == most_common_label]
 
-    # 根据时间序列的长度排序
+    # Sort by length of time series
     sorted_series = sorted(selected_series, key=len)
 
-    # 选择中位数长度的时间序列作为参考
+    # Select a time series of median length for reference
     reference_sequence = sorted_series[len(sorted_series) // 2]
-    
+
     return reference_sequence
 
 def event_detect(signal, pen=2):
-    # 在平均时间序列上进行事件检测
+    # Event detection on average time series
     diff_signal = np.diff(signal)
     algo = rpt.Pelt(model="rbf").fit(diff_signal)
-    events = algo.predict(pen=pen) # brake小一点比如0.5，最好能够指定一个数量
+    events = algo.predict(pen=pen) 
     return events
 
 def get_event_template(reference_sequence_1, all_series_1, pen):
     """event_template_1 = get_event_template(reference_sequence_1, all_series_1, pen)"""
-    # 使用 DTW 对齐所有时间序列，并保存 DTW 路径
+    # Use DTW to align all time series and save the DTW path
     aligned_series = []
     dtw_paths = []
     for idx, series in enumerate(all_series_1):  
@@ -101,7 +101,7 @@ def get_event_template(reference_sequence_1, all_series_1, pen):
             aligned[i] = series[j]
         aligned_series.append(aligned)
 
-    # 计算平均时间序列
+    # Calculate the average time series
     average_series_1 = np.mean(aligned_series, axis=0)
  
     events = event_detect(average_series_1, pen)
@@ -148,13 +148,13 @@ def fuse_and_map(all_series, average_series_1, event_template_1, ids_to_check, f
     for idx, series in enumerate(all_series):  
         _, path = fastdtw(average_series_1, series, dist=euclidean)
         dtw_paths.append(path)
-   # 使用指数映射计算置信度
+    # Confidence is calculated using an exponential map
     distances = [fastdtw(average_series_1, ts, dist=euclidean)[0] for ts in all_series]
     distances = np.array(distances)
     temperature = np.max(distances)
     prior_list = np.exp(-distances / temperature)
 
-    # 将检测到的事件映射回原始时间序列
+    # Map the detected event back to the original time series
     original_events = []
 
     for path in dtw_paths:
@@ -166,49 +166,48 @@ def fuse_and_map(all_series, average_series_1, event_template_1, ids_to_check, f
                 ref_to_mapped[ref] = []
             ref_to_mapped[ref].append(mapped)
         
-        min_distance = 5  # 选择一个适当的最小距离
+        min_distance = 5  # Select an appropriate minimum distance
 
         for idx, ref in enumerate(event_template_1):
             if ref in ref_to_mapped:
-                if idx == len(event_template_1) - 1:  # 如果是最后一个事件
-                    # 映射到原始序列的最后一个时间戳
+                if idx == len(event_template_1) - 1:  # If this is the last event
+                    # The last timestamp mapped to the original sequence
                     mapped_events_for_this_path.append(path[-1][1])
                 elif len(ref_to_mapped[ref]) == 1:
-                    # 只有一个映射点
+                    # Only one mapping point
                     mapped_events_for_this_path.append(ref_to_mapped[ref][0])
                 else:
-                    # 多个映射点，尝试选择一个不太靠近其他已映射点的点
+                    # Multiple mapped points, try to select a point that is not too close to the other mapped points
                     chosen_point = None
                     for point in ref_to_mapped[ref]:
                         if all(abs(point - other_point) >= min_distance for other_point in mapped_events_for_this_path):
                             chosen_point = point
                             break
                     if chosen_point is None:
-                        # 如果没有找到合适的点，选择中间的点
+                        # If no suitable point is found, select the middle point
                         chosen_point = ref_to_mapped[ref][len(ref_to_mapped[ref]) // 2]
                     mapped_events_for_this_path.append(chosen_point)
 
         original_events.append(mapped_events_for_this_path)
 
-    # 随机选择4个id
+    # Randomly select 4 ids to draw and see the effect
     ids_to_plot = random.sample(ids_to_check, 4)
-    # ids_to_plot = [30,38,46,64]
 
-    # 获取这4个id对应的序列
+    # Get the sequence corresponding to the 4 ids
     selected_series = [all_series[ids_to_check.index(i)] for i in ids_to_plot]
     selected_original_events = [original_events[ids_to_check.index(i)] for i in ids_to_plot]
 
-    # 设置图形大小
+    # Set the size of the graph
     fig, axes = plt.subplots(len(ids_to_plot) + 1, 1, figsize=(15, 7))
 
-    # 绘制融合的时间序列及其事件
+    # Plot the time series of fusion and its events
     axes[0].plot(average_series_1, label='Fused Series')
     for event in event_template_1:
         axes[0].axvline(event, color='red', linestyle='--', label='Breakpoint')
     axes[0].set_title("Fused Series with "+str(feature))
     axes[0].legend()
 
-    # 绘制选定的原始序列及其映射事件
+    # Draw the selected original sequence and its mapping events
     for idx, (series, ax) in enumerate(zip(selected_series, axes[1:])):
         ax.plot(series, label='Original Series')
         for event in selected_original_events[idx]:
@@ -222,7 +221,7 @@ def fuse_and_map(all_series, average_series_1, event_template_1, ids_to_check, f
     likelihood = [1]*len(event_template_1)
     prior = 1
     attributes_df = event_attributs(average_series_1, event_template_1, prior, likelihood, feature)
-    # 由于你提到event_template_1的最后一个值不需要，我们可以去掉它
+    # The last value of event_template is not needed, we can remove it
     event_starts = event_template_1[:-1]
 
     # 使用正则表达式来匹配事件名和编号
@@ -231,22 +230,18 @@ def fuse_and_map(all_series, average_series_1, event_template_1, ids_to_check, f
     # 获取 attributes_df 中的所有独特的事件名（例如：'brake_1', 'brake_2', ...）
     event_names = set(match.group(1) for col in attributes_df.columns for match in [pattern.match(col)] if match)
 
-    # 为每个事件名和每个开始时间添加一个新列
+    # Add a new column for each event name and each start time
     for event_name in event_names:
-        # 获取事件编号
+        # Get the event number
         event_number = event_name.split('_')[-1]
         
-        # 确保事件编号是一个数字，并且对应的开始时间存在
+        # Ensure that the event number is a number and that the corresponding start time exists
         if event_number.isdigit() and int(event_number) <= len(event_starts):
-            # 添加新列
             attributes_df[f'{event_name}_start'] = event_starts[int(event_number) - 1]
-    # print(attributes_df.columns)
-    # 现在，attributes_df 将包含每个事件的 start 列
-    # 你可以将 attributes_df 保存为一个 CSV 文件
     path_avg = root_path+str(GPT_iter)+'average_sequence.csv'
     path_att = root_path+str(GPT_iter)+'as_attributes.csv'
     
-    # 如果文件存在，读取现有数据
+    # If file exists, read existing data
     if os.path.exists(path_avg):
         df_average = pd.read_csv(path_avg)
     else:
@@ -262,15 +257,15 @@ def fuse_and_map(all_series, average_series_1, event_template_1, ids_to_check, f
     # Now, you should be able to assign it to a column in your DataFrame without encountering a ValueError.
     df_average[feature] = average_series_1_aligned
     
-    # 找到所有包含 'confidence' 的列
+    # Find all columns containing 'confidence'
     cols_to_drop = [col for col in attributes_df.columns if 'confidence' in col]
-    # 从 attributes_df 中删除这些列
+    # Remove these columns from attributes_df
     attributes_df_dropped = attributes_df.drop(columns=cols_to_drop)
-    # 然后连接 df_attributes 和 attributes_df_dropped
+    # Then connect df_attributes and attributes_df_dropped
     df_attributes = pd.concat([df_attributes, attributes_df_dropped], axis=1)
 
-    
-    # 存储到 CSV 文件
+
+    # Save to CSV file
     df_average.to_csv(path_avg, index=False)
     df_attributes.to_csv(path_att, index=False)
 
@@ -279,16 +274,16 @@ def fuse_and_map(all_series, average_series_1, event_template_1, ids_to_check, f
 
 def process_mapped_events(series, mapped_events, original_events, temperature=5):
     """
-    处理映射事件点，只保留与原生事件点最接近的映射事件点，并计算第二个置信度。
-    
-    参数：
-    - mapped_events: 映射事件点的列表
-    - original_events: 原生事件点的列表
-    - temperature: 用于计算置信度的温度参数
-    
-    返回：
-    - selected_events: 选定的事件点的列表
-    - confidences: 对应于选定事件点的置信度列表
+    The mapped event points are processed, keeping only the mapped event points closest to the native event points, and the second confidence level is calculated.
+
+    Parameters:
+    - mapped_events: indicates the list of mapped event points
+    - original_events: indicates the original_events list
+    - temperature: Temperature parameter used to calculate confidence
+
+    Back:
+    - selected_events: Lists the selected event points
+    - confidences: Confidence lists corresponding to selected event points
     """
     if len(original_events) == 0 or len(mapped_events) == 0:
         return [], []
@@ -308,30 +303,29 @@ def process_mapped_events(series, mapped_events, original_events, temperature=5)
     likelihood_list = []
     
     for mapped_event in mapped_events:
-        # 找到最近的原生事件点
+        # Find the nearest native event point
         nearest_event = min(original_events, key=lambda x: abs(x - mapped_event))
         selected_events.append(nearest_event)
         
-        # 计算置信度
+        # Calculate confidence
         distance = abs(nearest_event - mapped_event)
         confidence = np.exp(-distance / temperature)
         likelihood_list.append(confidence)
         
-        # 从original_events中移除已匹配的事件，避免重复匹配
+        # Removes matched events from original_events to avoid duplicate matches
         original_events.remove(nearest_event)  
     
-    # 处理store_original
+    # Handle store_original
     selected_events.append(store_original)
-    # 对于store_original，置信度是啥都无所谓，给个1
+    # For store_original, it doesn't matter what the confidence is, give it a 1
     likelihood_list.append(1.0)
     return selected_events, likelihood_list
 
 
 def event_attributs(signal, result, prior, likelihood, feature, color='b'):
     tmp = pd.DataFrame()
-    # 如果result为空，添加一行NaN
+    # If result is empty, add a line of NaN
     if len(result)==0 or 1:
-        # print("!!!!!")
         tmp = tmp.append(pd.Series([np.nan] * len(tmp.columns), index=tmp.columns), ignore_index=True)
         # print(tmp)
 
@@ -345,42 +339,41 @@ def event_attributs(signal, result, prior, likelihood, feature, color='b'):
         tmp[f'{feature}_{i}_mean'] = [mean]
         tmp[f'{feature}_{i}_start'] = [start]
         tmp[f'{feature}_{i}_confidence'] = [prior*likelihood[i-1]]     
-        # TODO: 有的算出来是nan可以替换成0
     return tmp
 
 
 def plot_events(tmp, axis, signal, feature, result):
     """
-    使用tmp DataFrame中的信息绘制事件。
+    Plot events using the information in the tmp DataFrame.
 
-    参数：
-    - tmp: DataFrame 包含事件的属性。
-    - axis: matplotlib的轴对象 用于绘图。
-    - signal: 一维数组或列表，表示信号序列。
-    - feature: 字符串，表示特征的名称。
-    - result: 列表，包含事件的开始和结束位置。
+    Parameters:
+    -tmp: DataFrame contains the attribute of the event.
+    - axis: The axis object of matplotlib is used for drawing.
+    - signal: indicates a one-dimensional array or list, indicating a signal sequence.
+    - feature: A character string indicating the feature name.
+    - result: A list containing the start and end locations of events.
     """
-    # 绘制信号
+    # Draw signal
     axis.plot(signal, label='Signal')
     
-    # 遍历result中的每个事件位置
+    # Iterate over each event location in result
     for i in range(1, len(result)):
         start, end = result[i-1], result[i]
 
-        # 从tmp中提取信息
+        # Extract information from tmp
         change_rate = tmp[f'{feature}_{i}_rate'].values[0]
         change_magnitude = tmp[f'{feature}_{i}_magnitude'].values[0]
         mean = tmp[f'{feature}_{i}_mean'].values[0]
         start = tmp[f'{feature}_{i}_start'].values[0]
         confidence = tmp[f'{feature}_{i}_confidence'].values[0]
 
-        # 标注在图上
+        # Label on the picture
         annotation_text = f"Rate: {change_rate:.2f}\nMagnitude: {change_magnitude:.2f}\nMean: {mean:.2f}\nConfidence: {confidence:.2f}"
         axis.annotate(annotation_text, xy=(start, signal[start]),
                       xytext=(0, 10), textcoords='offset points', arrowprops=dict(arrowstyle="->"),
                       fontsize=12, ha='center')
-        axis.axvline(x=start, linestyle='--', alpha=0.5)  # 在start点画竖线
-        axis.axvline(x=end, linestyle='--', alpha=0.5)    # 在end点画竖线
+        axis.axvline(x=start, linestyle='--', alpha=0.5)  # Draw a vertical line on the start dot
+        axis.axvline(x=end, linestyle='--', alpha=0.5)    # Draw a vertical line at the end
 
     axis.legend()
 
@@ -388,66 +381,68 @@ def plot_events(tmp, axis, signal, feature, result):
 def process_one_feature(df, y_df, feature):
     feature, rpt_pen, cluster_thres = feature_set[0], float(feature_set[1]), float(feature_set[2])
 
-    # 单独提取1的label的ids，因为1的数据要作为事件模板，映射回所有原序列
+    # Extract the label ids of 1 separately
+    # because the data of 1 is to be used as the event template and mapped back to all the original sequences
     ids_1 = (y_df[y_df['0'] == 1].index + 1).tolist()
     ids_all = (y_df.index + 1).tolist()
 
-    # 先用聚类得到label=1的事件模板
+    # First get the event template with label=1 by clustering
     all_series_1 = [df[df['id'] == i][feature].values for i in ids_1]
     reference_sequence_1 = hierarchical_clustering_and_reference(all_series_1, threshold=cluster_thres)
     event_template_1, average_series_1 = get_event_template(reference_sequence_1, all_series_1, rpt_pen)
 
-    # 用1的模板映射回0和1的原序列
+    # Map back to the original sequence of 0 and 1 using the template of 1
     all_series = [df[df['id'] == i][feature].values for i in ids_all]
     mapped_events, prior_list = fuse_and_map(all_series, average_series_1, event_template_1, ids_all, feature, rpt_pen)
-    original_events = [event_detect(series, rpt_pen*0.4) for series in all_series] #原序列多检测一些断点，用来选
+    # The original sequence detects some breakpoints, used to select
+    original_events = [event_detect(series, rpt_pen*0.4) for series in all_series] 
     
-    # 创建一个新的DataFrame来存储特征
+    # Create a new DataFrame to store the feature
     df_feature = pd.DataFrame()
 
-    # 处理所有样本，更新df_feature
+    # Process all samples and update df_feature
     for idx, series in enumerate(all_series):
         filter_list, likelihood = process_mapped_events(all_series[idx], mapped_events[idx], original_events[idx])
-        prior = prior_list[idx]  # 获取对应的置信度值
+        prior = prior_list[idx]  # Gets the corresponding confidence value
         tmp = event_attributs(series, filter_list, prior, likelihood, feature)
-        # 获取当前id对应的label
+        # Gets the label corresponding to the current id
         current_label = y_df.loc[idx, '0']
         
-        # 将label添加到tmp DataFrame中
+        # Add label to tmp DataFrame
         tmp['result'] = current_label
         
-        # 将tmp DataFrame添加到总的DataFrame中
+        # Add tmp DataFrame to the total DataFrame
         df_feature = pd.concat([df_feature, tmp], ignore_index=True)
     # print(df_feature)
 
-    # 随机选择4个id进行可视化
+    # Randomly select 4 ids for visualization
     ids_to_check = random.sample(ids_all, 4)
 
-    # 获取这4个id对应的序列
+    # Get the sequence corresponding to the 4 ids
     selected_series = [all_series[ids_all.index(i)] for i in ids_to_check]
 
-    # 获取这4个id对应的映射事件和原始事件
+    # Get the mapped event and the original event corresponding to the 4 ids
     selected_mapped_events = [mapped_events[ids_all.index(i)] for i in ids_to_check]
     selected_original_events = [original_events[ids_all.index(i)] for i in ids_to_check]
 
-    # 设置图形大小
+    # Set the size of the graph
     fig, axes = plt.subplots(len(ids_to_check), 1, figsize=(15, 7))
 
-    # 使用上述函数进行可视化
+    # Use the above functions for visualization
     for idx, axis in enumerate(axes):
         filter_list, likelihood = process_mapped_events(selected_series[idx], selected_mapped_events[idx], selected_original_events[idx])
-        prior = prior_list[ids_all.index(ids_to_check[idx])]  # 获取对应的置信度值
+        prior = prior_list[ids_all.index(ids_to_check[idx])]  # Gets the corresponding confidence value
         
-        # 获取事件的属性并存储在tmp DataFrame中
+        # Gets the attributes of the event and stores them in the tmp DataFrame
         tmp = event_attributs(selected_series[idx], filter_list, prior, likelihood, feature)
-        
-        # 使用tmp DataFrame中的信息绘制事件
+
+        # Draw events using the information in the tmp DataFrame
         plot_events(tmp, axis, selected_series[idx], feature, filter_list)
-        
-        # 获取当前id对应的label
+
+        # Gets the label corresponding to the current id
         current_label = y_df.loc[ids_all.index(ids_to_check[idx]), '0']
-        
-        # 在图表标题中添加label信息
+
+        # Add label information to the chart title
         # axis.set_title(f"ID: {ids_to_check[idx]}, Label: {current_label}")
         axis.set_title(f"ID: {ids_to_check[idx]}, Label: {current_label}", loc='left')
 
@@ -457,59 +452,52 @@ def process_one_feature(df, y_df, feature):
 
 def compute_and_fill_features(df, feature_definitions):
     def fill_series(s):
-        """用就近的值填充序列中的nan和inf。"""
+        """ Fills nan and inf in the sequence with the nearest value."""
         if not isinstance(s, pd.Series):
             s = pd.Series(s)
         return s.interpolate(method='nearest').bfill().ffill() 
     for feature_name, feature_definition in feature_definitions.items():
-        # 计算新特征
+        # Calculate new features
         df[feature_name] = eval(feature_definition)
         
-        # 填充 nan 和 inf
+        # Fill nan and inf
         df[feature_name] = fill_series(df[feature_name])
     return df
 
-# 序列对齐
-#TODO: 多选几个作为参考序列再取平均，or可以选序列长度中位数的作为参考序列（的长度）
-
-# 读取数据
-### 1.改下路径！！！检查好x和y数量是对齐的
+# Read data
+### 1.edit root_path
 root_path = 'assets/1npccutin/'
-# root_path = 'assets/data0/'
+
 df = pd.read_csv(root_path+'data_processed.csv')
-# y_df = pd.read_csv(root_path+'data_processed_y.csv')
+
 y_df = pd.read_csv(root_path+'features.csv')
 y_df = y_df[['id', 'result']]
 y_df = y_df.rename(columns={'id': ''})
 y_df = y_df.rename(columns={'result': '0'})
 
-### 2.第几次迭代，按GPT的feature公式输入
-# 定义你的特征
+### 2.interface with LLM agent
 feature_definitions = {
-    'RelativeHeadingNPC1' : "abs(df['heading'] - df['NPC1Theta'])",
+    'LaneChange' : "abs(df['heading'] - df['NPC1Theta'])",
 }
-### !!!!!!!!!!!!
 GPT_iter = 1
 df = compute_and_fill_features(df, feature_definitions)
-# print(df['RelativeDistanceNPC1'])
-# ('brake', 0.5, 10),('speed_difference', 0.5, 10),('npc_theta', 2, 5),('relative_distance', 1, 10)
-### 3.敏感数据用0.5,10；反之1.5,8
+
+### 3.Use 0.5,10 for sensitive data; Vice versa 1.5,8
 df_proceed = pd.DataFrame()
 feature_list = [('NPC1Theta',2.5, 8)] 
-# feature_list = [('brake', 0.5, 10),('npc_theta', 2, 5)] 
 
 for i, feature_set in enumerate(feature_list):
     df_feature = process_one_feature(df, y_df, feature_set)
-    # 如果不是第一次迭代，并且新的特征数据框包含 "result" 列，则删除它
+    # If it is not the first iteration and the new feature data box contains the "result" column, delete it
     if i != 0 and 'result' in df_feature.columns:
         df_feature = df_feature.drop(columns=['result'])
-    # 如果是第一次迭代，直接将 df_feature 赋值给 df_proceed
+    # If this is the first iteration, assign df_feature directly to df_proceed
     if i == 0:
         df_proceed = df_feature
     else:
-        # 确保你的原始数据框和新的特征数据框有相同的索引
+        # Make sure your original data box and the new feature data box have the same index
         df_feature = df_feature.set_index(df_proceed.index)
-        # 将新的特征数据框添加到处理后的数据框的后面
+        # Add the new feature data box to the end of the processed data box
         df_proceed = pd.concat([df_proceed, df_feature], axis=1)
 
 df_proceed.to_csv(root_path+str(GPT_iter)+'event_extracted.csv', index=False)
