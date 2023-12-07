@@ -1,0 +1,3648 @@
+perception_obstacle {
+  id: 1
+  position {
+    x: 592816.9506835938
+    y: 4134032.315979004
+    z: 10.19552993774414
+  }
+  theta: 3.9500907793676276
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565535068511963
+  width: 2.08243465423584
+  height: 1.3560075759887695
+  polygon_point {
+    x: 592819.2801910106
+    y: 4134033.2479428817
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592817.7740684678
+    y: 4134034.686042046
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592814.6211761769
+    y: 4134031.384015126
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592816.1272987197
+    y: 4134029.9459159616
+    z: 10.19552993774414
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930662.9795406
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592816.9506835938
+    y: 4134032.315979004
+    z: 10.19552993774414
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 1
+    position {
+      x: 592816.9506835938
+      y: 4134032.315979004
+      z: 10.19552993774414
+    }
+    theta: 3.9500907793676276
+    length: 4.565535068511963
+    width: 2.08243465423584
+    height: 1.3560075759887695
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930662.9795406
+  }
+}
+perception_obstacle {
+  id: 3
+  position {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  theta: 0.8084984164298703
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565540313720703
+  width: 2.08243989944458
+  height: 1.35600745677948
+  polygon_point {
+    x: 592803.5159254035
+    y: 4134025.501842555
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592805.0220522364
+    y: 4134024.063740389
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592808.1749467889
+    y: 4134027.365772191
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592806.668819956
+    y: 4134028.803874357
+    z: 10.195883750915527
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930662.9795406
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 3
+    position {
+      x: 592805.8454360962
+      y: 4134026.433807373
+      z: 10.195883750915527
+    }
+    theta: 0.8084984164298703
+    length: 4.565540313720703
+    width: 2.08243989944458
+    height: 1.35600745677948
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930662.9795406
+  }
+}
+header {
+  timestamp_sec: 1701930662.9795406
+  module_name: "perception_obstacle"
+  sequence_num: 36
+  lidar_timestamp: 1701930662979540480
+}
+error_code: OK
+
+perception_obstacle {
+  id: 1
+  position {
+    x: 592816.9506835938
+    y: 4134032.315979004
+    z: 10.19552993774414
+  }
+  theta: 3.9500907793676276
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565535068511963
+  width: 2.08243465423584
+  height: 1.3560075759887695
+  polygon_point {
+    x: 592819.2801910106
+    y: 4134033.2479428817
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592817.7740684678
+    y: 4134034.686042046
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592814.6211761769
+    y: 4134031.384015126
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592816.1272987197
+    y: 4134029.9459159616
+    z: 10.19552993774414
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930663.0795405
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592816.9506835938
+    y: 4134032.315979004
+    z: 10.19552993774414
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 1
+    position {
+      x: 592816.9506835938
+      y: 4134032.315979004
+      z: 10.19552993774414
+    }
+    theta: 3.9500907793676276
+    length: 4.565535068511963
+    width: 2.08243465423584
+    height: 1.3560075759887695
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930663.0795405
+  }
+}
+perception_obstacle {
+  id: 3
+  position {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  theta: 0.8084984164298703
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565540313720703
+  width: 2.08243989944458
+  height: 1.35600745677948
+  polygon_point {
+    x: 592803.5159254035
+    y: 4134025.501842555
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592805.0220522364
+    y: 4134024.063740389
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592808.1749467889
+    y: 4134027.365772191
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592806.668819956
+    y: 4134028.803874357
+    z: 10.195883750915527
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930663.0795405
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 3
+    position {
+      x: 592805.8454360962
+      y: 4134026.433807373
+      z: 10.195883750915527
+    }
+    theta: 0.8084984164298703
+    length: 4.565540313720703
+    width: 2.08243989944458
+    height: 1.35600745677948
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930663.0795405
+  }
+}
+header {
+  timestamp_sec: 1701930663.0795405
+  module_name: "perception_obstacle"
+  sequence_num: 37
+  lidar_timestamp: 1701930663079540480
+}
+error_code: OK
+
+perception_obstacle {
+  id: 1
+  position {
+    x: 592816.9506835938
+    y: 4134032.315979004
+    z: 10.19552993774414
+  }
+  theta: 3.9500907793676276
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565535068511963
+  width: 2.08243465423584
+  height: 1.3560075759887695
+  polygon_point {
+    x: 592819.2801910106
+    y: 4134033.2479428817
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592817.7740684678
+    y: 4134034.686042046
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592814.6211761769
+    y: 4134031.384015126
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592816.1272987197
+    y: 4134029.9459159616
+    z: 10.19552993774414
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930663.1795404
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592816.9506835938
+    y: 4134032.315979004
+    z: 10.19552993774414
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 1
+    position {
+      x: 592816.9506835938
+      y: 4134032.315979004
+      z: 10.19552993774414
+    }
+    theta: 3.9500907793676276
+    length: 4.565535068511963
+    width: 2.08243465423584
+    height: 1.3560075759887695
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930663.1795404
+  }
+}
+perception_obstacle {
+  id: 3
+  position {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  theta: 0.8084984164298703
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565540313720703
+  width: 2.08243989944458
+  height: 1.35600745677948
+  polygon_point {
+    x: 592803.5159254035
+    y: 4134025.501842555
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592805.0220522364
+    y: 4134024.063740389
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592808.1749467889
+    y: 4134027.365772191
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592806.668819956
+    y: 4134028.803874357
+    z: 10.195883750915527
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930663.1795404
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 3
+    position {
+      x: 592805.8454360962
+      y: 4134026.433807373
+      z: 10.195883750915527
+    }
+    theta: 0.8084984164298703
+    length: 4.565540313720703
+    width: 2.08243989944458
+    height: 1.35600745677948
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930663.1795404
+  }
+}
+header {
+  timestamp_sec: 1701930663.1795404
+  module_name: "perception_obstacle"
+  sequence_num: 38
+  lidar_timestamp: 1701930663179540480
+}
+error_code: OK
+
+perception_obstacle {
+  id: 1
+  position {
+    x: 592816.9506835938
+    y: 4134032.315979004
+    z: 10.19552993774414
+  }
+  theta: 3.9500907793676276
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565535068511963
+  width: 2.08243465423584
+  height: 1.3560075759887695
+  polygon_point {
+    x: 592819.2801910106
+    y: 4134033.2479428817
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592817.7740684678
+    y: 4134034.686042046
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592814.6211761769
+    y: 4134031.384015126
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592816.1272987197
+    y: 4134029.9459159616
+    z: 10.19552993774414
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930663.2795403
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592816.9506835938
+    y: 4134032.315979004
+    z: 10.19552993774414
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 1
+    position {
+      x: 592816.9506835938
+      y: 4134032.315979004
+      z: 10.19552993774414
+    }
+    theta: 3.9500907793676276
+    length: 4.565535068511963
+    width: 2.08243465423584
+    height: 1.3560075759887695
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930663.2795403
+  }
+}
+perception_obstacle {
+  id: 3
+  position {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  theta: 0.8084984164298703
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565540313720703
+  width: 2.08243989944458
+  height: 1.35600745677948
+  polygon_point {
+    x: 592803.5159254035
+    y: 4134025.501842555
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592805.0220522364
+    y: 4134024.063740389
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592808.1749467889
+    y: 4134027.365772191
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592806.668819956
+    y: 4134028.803874357
+    z: 10.195883750915527
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930663.2795403
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 3
+    position {
+      x: 592805.8454360962
+      y: 4134026.433807373
+      z: 10.195883750915527
+    }
+    theta: 0.8084984164298703
+    length: 4.565540313720703
+    width: 2.08243989944458
+    height: 1.35600745677948
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930663.2795403
+  }
+}
+header {
+  timestamp_sec: 1701930663.2795403
+  module_name: "perception_obstacle"
+  sequence_num: 39
+  lidar_timestamp: 1701930663279540224
+}
+error_code: OK
+
+perception_obstacle {
+  id: 1
+  position {
+    x: 592816.4678955078
+    y: 4134031.8103637695
+    z: 10.19552993774414
+  }
+  theta: 3.9500907793676276
+  velocity {
+    x: -5.7411208152771
+    y: -6.011962890625
+    z: 0.0
+  }
+  length: 4.565535068511963
+  width: 2.08243465423584
+  height: 1.3560075759887695
+  polygon_point {
+    x: 592818.7974029246
+    y: 4134032.7423276473
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592817.2912803818
+    y: 4134034.180426812
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592814.138388091
+    y: 4134030.878399892
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592815.6445106338
+    y: 4134029.4403007273
+    z: 10.19552993774414
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930663.3795402
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592816.4678955078
+    y: 4134031.8103637695
+    z: 10.19552993774414
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 1
+    position {
+      x: 592816.4678955078
+      y: 4134031.8103637695
+      z: 10.19552993774414
+    }
+    theta: 3.9500907793676276
+    length: 4.565535068511963
+    width: 2.08243465423584
+    height: 1.3560075759887695
+    velocity {
+      x: -5.7411208152771
+      y: -6.011962890625
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930663.3795402
+  }
+}
+perception_obstacle {
+  id: 3
+  position {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  theta: 0.8084984164298703
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565540313720703
+  width: 2.08243989944458
+  height: 1.35600745677948
+  polygon_point {
+    x: 592803.5159254035
+    y: 4134025.501842555
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592805.0220522364
+    y: 4134024.063740389
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592808.1749467889
+    y: 4134027.365772191
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592806.668819956
+    y: 4134028.803874357
+    z: 10.195883750915527
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930663.3795402
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 3
+    position {
+      x: 592805.8454360962
+      y: 4134026.433807373
+      z: 10.195883750915527
+    }
+    theta: 0.8084984164298703
+    length: 4.565540313720703
+    width: 2.08243989944458
+    height: 1.35600745677948
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930663.3795402
+  }
+}
+header {
+  timestamp_sec: 1701930663.3795402
+  module_name: "perception_obstacle"
+  sequence_num: 40
+  lidar_timestamp: 1701930663379540224
+}
+error_code: OK
+
+perception_obstacle {
+  id: 1
+  position {
+    x: 592815.8788070679
+    y: 4134031.1934509277
+    z: 10.19552993774414
+  }
+  theta: 3.9500907793676276
+  velocity {
+    x: -5.7411208152771
+    y: -6.011962890625
+    z: 0.0
+  }
+  length: 4.565535068511963
+  width: 2.08243465423584
+  height: 1.3560075759887695
+  polygon_point {
+    x: 592818.2083144847
+    y: 4134032.1254148055
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592816.7021919419
+    y: 4134033.56351397
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592813.5492996511
+    y: 4134030.26148705
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592815.0554221938
+    y: 4134028.8233878855
+    z: 10.19552993774414
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930663.47954
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592815.8788070679
+    y: 4134031.1934509277
+    z: 10.19552993774414
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 1
+    position {
+      x: 592815.8788070679
+      y: 4134031.1934509277
+      z: 10.19552993774414
+    }
+    theta: 3.9500907793676276
+    length: 4.565535068511963
+    width: 2.08243465423584
+    height: 1.3560075759887695
+    velocity {
+      x: -5.7411208152771
+      y: -6.011962890625
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930663.47954
+  }
+}
+perception_obstacle {
+  id: 3
+  position {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  theta: 0.8084984164298703
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565540313720703
+  width: 2.08243989944458
+  height: 1.35600745677948
+  polygon_point {
+    x: 592803.5159254035
+    y: 4134025.501842555
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592805.0220522364
+    y: 4134024.063740389
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592808.1749467889
+    y: 4134027.365772191
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592806.668819956
+    y: 4134028.803874357
+    z: 10.195883750915527
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930663.47954
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 3
+    position {
+      x: 592805.8454360962
+      y: 4134026.433807373
+      z: 10.195883750915527
+    }
+    theta: 0.8084984164298703
+    length: 4.565540313720703
+    width: 2.08243989944458
+    height: 1.35600745677948
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930663.47954
+  }
+}
+header {
+  timestamp_sec: 1701930663.47954
+  module_name: "perception_obstacle"
+  sequence_num: 41
+  lidar_timestamp: 1701930663479540224
+}
+error_code: OK
+
+perception_obstacle {
+  id: 1
+  position {
+    x: 592815.3285751343
+    y: 4134030.6172180176
+    z: 10.19552993774414
+  }
+  theta: 3.9500907793676276
+  velocity {
+    x: -5.7411208152771
+    y: -6.011962890625
+    z: 0.0
+  }
+  length: 4.565535068511963
+  width: 2.08243465423584
+  height: 1.3560075759887695
+  polygon_point {
+    x: 592817.6580825511
+    y: 4134031.5491818953
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592816.1519600083
+    y: 4134032.98728106
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592812.9990677175
+    y: 4134029.68525414
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592814.5051902602
+    y: 4134028.2471549753
+    z: 10.19552993774414
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930663.57954
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592815.3285751343
+    y: 4134030.6172180176
+    z: 10.19552993774414
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 1
+    position {
+      x: 592815.3285751343
+      y: 4134030.6172180176
+      z: 10.19552993774414
+    }
+    theta: 3.9500907793676276
+    length: 4.565535068511963
+    width: 2.08243465423584
+    height: 1.3560075759887695
+    velocity {
+      x: -5.7411208152771
+      y: -6.011962890625
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930663.57954
+  }
+}
+perception_obstacle {
+  id: 3
+  position {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  theta: 0.8084984164298703
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565540313720703
+  width: 2.08243989944458
+  height: 1.35600745677948
+  polygon_point {
+    x: 592803.5159254035
+    y: 4134025.501842555
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592805.0220522364
+    y: 4134024.063740389
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592808.1749467889
+    y: 4134027.365772191
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592806.668819956
+    y: 4134028.803874357
+    z: 10.195883750915527
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930663.57954
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 3
+    position {
+      x: 592805.8454360962
+      y: 4134026.433807373
+      z: 10.195883750915527
+    }
+    theta: 0.8084984164298703
+    length: 4.565540313720703
+    width: 2.08243989944458
+    height: 1.35600745677948
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930663.57954
+  }
+}
+header {
+  timestamp_sec: 1701930663.57954
+  module_name: "perception_obstacle"
+  sequence_num: 42
+  lidar_timestamp: 1701930663579539968
+}
+error_code: OK
+
+perception_obstacle {
+  id: 1
+  position {
+    x: 592814.7300872803
+    y: 4134029.9903564453
+    z: 10.19552993774414
+  }
+  theta: 3.9500907793676276
+  velocity {
+    x: -5.7411208152771
+    y: -6.0150146484375
+    z: 0.0
+  }
+  length: 4.565535068511963
+  width: 2.08243465423584
+  height: 1.3560075759887695
+  polygon_point {
+    x: 592817.0595946971
+    y: 4134030.922320323
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592815.5534721543
+    y: 4134032.3604194876
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592812.4005798635
+    y: 4134029.0583925676
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592813.9067024062
+    y: 4134027.620293403
+    z: 10.19552993774414
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930663.67954
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592814.7300872803
+    y: 4134029.9903564453
+    z: 10.19552993774414
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 1
+    position {
+      x: 592814.7300872803
+      y: 4134029.9903564453
+      z: 10.19552993774414
+    }
+    theta: 3.9500907793676276
+    length: 4.565535068511963
+    width: 2.08243465423584
+    height: 1.3560075759887695
+    velocity {
+      x: -5.7411208152771
+      y: -6.0150146484375
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930663.67954
+  }
+}
+perception_obstacle {
+  id: 3
+  position {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  theta: 0.8084984164298703
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565540313720703
+  width: 2.08243989944458
+  height: 1.35600745677948
+  polygon_point {
+    x: 592803.5159254035
+    y: 4134025.501842555
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592805.0220522364
+    y: 4134024.063740389
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592808.1749467889
+    y: 4134027.365772191
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592806.668819956
+    y: 4134028.803874357
+    z: 10.195883750915527
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930663.67954
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 3
+    position {
+      x: 592805.8454360962
+      y: 4134026.433807373
+      z: 10.195883750915527
+    }
+    theta: 0.8084984164298703
+    length: 4.565540313720703
+    width: 2.08243989944458
+    height: 1.35600745677948
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930663.67954
+  }
+}
+header {
+  timestamp_sec: 1701930663.67954
+  module_name: "perception_obstacle"
+  sequence_num: 43
+  lidar_timestamp: 1701930663679539968
+}
+error_code: OK
+
+perception_obstacle {
+  id: 1
+  position {
+    x: 592814.1731643677
+    y: 4134029.4071350098
+    z: 10.19552993774414
+  }
+  theta: 3.9500907793676276
+  velocity {
+    x: -5.7411208152771
+    y: -6.011962890625
+    z: 0.0
+  }
+  length: 4.565535068511963
+  width: 2.08243465423584
+  height: 1.3560075759887695
+  polygon_point {
+    x: 592816.5026717845
+    y: 4134030.3390988875
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592814.9965492417
+    y: 4134031.777198052
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592811.8436569509
+    y: 4134028.475171132
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592813.3497794936
+    y: 4134027.0370719675
+    z: 10.19552993774414
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930663.7795398
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592814.1731643677
+    y: 4134029.4071350098
+    z: 10.19552993774414
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 1
+    position {
+      x: 592814.1731643677
+      y: 4134029.4071350098
+      z: 10.19552993774414
+    }
+    theta: 3.9500907793676276
+    length: 4.565535068511963
+    width: 2.08243465423584
+    height: 1.3560075759887695
+    velocity {
+      x: -5.7411208152771
+      y: -6.011962890625
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930663.7795398
+  }
+}
+perception_obstacle {
+  id: 3
+  position {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  theta: 0.8084984164298703
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565540313720703
+  width: 2.08243989944458
+  height: 1.35600745677948
+  polygon_point {
+    x: 592803.5159254035
+    y: 4134025.501842555
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592805.0220522364
+    y: 4134024.063740389
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592808.1749467889
+    y: 4134027.365772191
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592806.668819956
+    y: 4134028.803874357
+    z: 10.195883750915527
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930663.7795398
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 3
+    position {
+      x: 592805.8454360962
+      y: 4134026.433807373
+      z: 10.195883750915527
+    }
+    theta: 0.8084984164298703
+    length: 4.565540313720703
+    width: 2.08243989944458
+    height: 1.35600745677948
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930663.7795398
+  }
+}
+header {
+  timestamp_sec: 1701930663.7795398
+  module_name: "perception_obstacle"
+  sequence_num: 44
+  lidar_timestamp: 1701930663779539712
+}
+error_code: OK
+
+perception_obstacle {
+  id: 1
+  position {
+    x: 592813.5671615601
+    y: 4134028.77243042
+    z: 10.19552993774414
+  }
+  theta: 3.9500907793676276
+  velocity {
+    x: -5.740357875823975
+    y: -6.011962890625
+    z: 0.0
+  }
+  length: 4.565535068511963
+  width: 2.08243465423584
+  height: 1.3560075759887695
+  polygon_point {
+    x: 592815.8966689769
+    y: 4134029.7043942977
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592814.3905464341
+    y: 4134031.142493462
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592811.2376541432
+    y: 4134027.840466542
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592812.743776686
+    y: 4134026.4023673777
+    z: 10.19552993774414
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930663.8795397
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592813.5671615601
+    y: 4134028.77243042
+    z: 10.19552993774414
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 1
+    position {
+      x: 592813.5671615601
+      y: 4134028.77243042
+      z: 10.19552993774414
+    }
+    theta: 3.9500907793676276
+    length: 4.565535068511963
+    width: 2.08243465423584
+    height: 1.3560075759887695
+    velocity {
+      x: -5.740357875823975
+      y: -6.011962890625
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930663.8795397
+  }
+}
+perception_obstacle {
+  id: 3
+  position {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  theta: 0.8084984164298703
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565540313720703
+  width: 2.08243989944458
+  height: 1.35600745677948
+  polygon_point {
+    x: 592803.5159254035
+    y: 4134025.501842555
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592805.0220522364
+    y: 4134024.063740389
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592808.1749467889
+    y: 4134027.365772191
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592806.668819956
+    y: 4134028.803874357
+    z: 10.195883750915527
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930663.8795397
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 3
+    position {
+      x: 592805.8454360962
+      y: 4134026.433807373
+      z: 10.195883750915527
+    }
+    theta: 0.8084984164298703
+    length: 4.565540313720703
+    width: 2.08243989944458
+    height: 1.35600745677948
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930663.8795397
+  }
+}
+header {
+  timestamp_sec: 1701930663.8795397
+  module_name: "perception_obstacle"
+  sequence_num: 45
+  lidar_timestamp: 1701930663879539712
+}
+error_code: OK
+
+perception_obstacle {
+  id: 1
+  position {
+    x: 592813.0171737671
+    y: 4134028.1964416504
+    z: 10.19552993774414
+  }
+  theta: 3.9500907793676276
+  velocity {
+    x: -5.7411208152771
+    y: -6.011962890625
+    z: 0.0
+  }
+  length: 4.565535068511963
+  width: 2.08243465423584
+  height: 1.3560075759887695
+  polygon_point {
+    x: 592815.3466811839
+    y: 4134029.128405528
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592813.8405586411
+    y: 4134030.5665046927
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592810.6876663503
+    y: 4134027.2644777726
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592812.193788893
+    y: 4134025.826378608
+    z: 10.19552993774414
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930663.9795396
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592813.0171737671
+    y: 4134028.1964416504
+    z: 10.19552993774414
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 1
+    position {
+      x: 592813.0171737671
+      y: 4134028.1964416504
+      z: 10.19552993774414
+    }
+    theta: 3.9500907793676276
+    length: 4.565535068511963
+    width: 2.08243465423584
+    height: 1.3560075759887695
+    velocity {
+      x: -5.7411208152771
+      y: -6.011962890625
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930663.9795396
+  }
+}
+perception_obstacle {
+  id: 3
+  position {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  theta: 0.8084984164298703
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565540313720703
+  width: 2.08243989944458
+  height: 1.35600745677948
+  polygon_point {
+    x: 592803.5159254035
+    y: 4134025.501842555
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592805.0220522364
+    y: 4134024.063740389
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592808.1749467889
+    y: 4134027.365772191
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592806.668819956
+    y: 4134028.803874357
+    z: 10.195883750915527
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930663.9795396
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 3
+    position {
+      x: 592805.8454360962
+      y: 4134026.433807373
+      z: 10.195883750915527
+    }
+    theta: 0.8084984164298703
+    length: 4.565540313720703
+    width: 2.08243989944458
+    height: 1.35600745677948
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930663.9795396
+  }
+}
+header {
+  timestamp_sec: 1701930663.9795396
+  module_name: "perception_obstacle"
+  sequence_num: 46
+  lidar_timestamp: 1701930663979539712
+}
+error_code: OK
+
+perception_obstacle {
+  id: 1
+  position {
+    x: 592812.701210022
+    y: 4134027.865539551
+    z: 10.19552993774414
+  }
+  theta: 3.9500907793676276
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565535068511963
+  width: 2.08243465423584
+  height: 1.3560075759887695
+  polygon_point {
+    x: 592815.0307174388
+    y: 4134028.7975034285
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592813.524594896
+    y: 4134030.235602593
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592810.3717026052
+    y: 4134026.933575673
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592811.8778251479
+    y: 4134025.4954765085
+    z: 10.19552993774414
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930664.0795395
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592812.701210022
+    y: 4134027.865539551
+    z: 10.19552993774414
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 1
+    position {
+      x: 592812.701210022
+      y: 4134027.865539551
+      z: 10.19552993774414
+    }
+    theta: 3.9500907793676276
+    length: 4.565535068511963
+    width: 2.08243465423584
+    height: 1.3560075759887695
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930664.0795395
+  }
+}
+perception_obstacle {
+  id: 3
+  position {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  theta: 0.8084984164298703
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565540313720703
+  width: 2.08243989944458
+  height: 1.35600745677948
+  polygon_point {
+    x: 592803.5159254035
+    y: 4134025.501842555
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592805.0220522364
+    y: 4134024.063740389
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592808.1749467889
+    y: 4134027.365772191
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592806.668819956
+    y: 4134028.803874357
+    z: 10.195883750915527
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930664.0795395
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 3
+    position {
+      x: 592805.8454360962
+      y: 4134026.433807373
+      z: 10.195883750915527
+    }
+    theta: 0.8084984164298703
+    length: 4.565540313720703
+    width: 2.08243989944458
+    height: 1.35600745677948
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930664.0795395
+  }
+}
+header {
+  timestamp_sec: 1701930664.0795395
+  module_name: "perception_obstacle"
+  sequence_num: 47
+  lidar_timestamp: 1701930664079539456
+}
+error_code: OK
+
+perception_obstacle {
+  id: 1
+  position {
+    x: 592812.701210022
+    y: 4134027.865539551
+    z: 10.19552993774414
+  }
+  theta: 3.9500907793676276
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565535068511963
+  width: 2.08243465423584
+  height: 1.3560075759887695
+  polygon_point {
+    x: 592815.0307174388
+    y: 4134028.7975034285
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592813.524594896
+    y: 4134030.235602593
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592810.3717026052
+    y: 4134026.933575673
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592811.8778251479
+    y: 4134025.4954765085
+    z: 10.19552993774414
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930664.1795394
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592812.701210022
+    y: 4134027.865539551
+    z: 10.19552993774414
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 1
+    position {
+      x: 592812.701210022
+      y: 4134027.865539551
+      z: 10.19552993774414
+    }
+    theta: 3.9500907793676276
+    length: 4.565535068511963
+    width: 2.08243465423584
+    height: 1.3560075759887695
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930664.1795394
+  }
+}
+perception_obstacle {
+  id: 3
+  position {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  theta: 0.8084984164298703
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565540313720703
+  width: 2.08243989944458
+  height: 1.35600745677948
+  polygon_point {
+    x: 592803.5159254035
+    y: 4134025.501842555
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592805.0220522364
+    y: 4134024.063740389
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592808.1749467889
+    y: 4134027.365772191
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592806.668819956
+    y: 4134028.803874357
+    z: 10.195883750915527
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930664.1795394
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 3
+    position {
+      x: 592805.8454360962
+      y: 4134026.433807373
+      z: 10.195883750915527
+    }
+    theta: 0.8084984164298703
+    length: 4.565540313720703
+    width: 2.08243989944458
+    height: 1.35600745677948
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930664.1795394
+  }
+}
+header {
+  timestamp_sec: 1701930664.1795394
+  module_name: "perception_obstacle"
+  sequence_num: 48
+  lidar_timestamp: 1701930664179539456
+}
+error_code: OK
+
+perception_obstacle {
+  id: 1
+  position {
+    x: 592812.701210022
+    y: 4134027.865539551
+    z: 10.19552993774414
+  }
+  theta: 3.9500907793676276
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565535068511963
+  width: 2.08243465423584
+  height: 1.3560075759887695
+  polygon_point {
+    x: 592815.0307174388
+    y: 4134028.7975034285
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592813.524594896
+    y: 4134030.235602593
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592810.3717026052
+    y: 4134026.933575673
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592811.8778251479
+    y: 4134025.4954765085
+    z: 10.19552993774414
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930664.2795393
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592812.701210022
+    y: 4134027.865539551
+    z: 10.19552993774414
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 1
+    position {
+      x: 592812.701210022
+      y: 4134027.865539551
+      z: 10.19552993774414
+    }
+    theta: 3.9500907793676276
+    length: 4.565535068511963
+    width: 2.08243465423584
+    height: 1.3560075759887695
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930664.2795393
+  }
+}
+perception_obstacle {
+  id: 3
+  position {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  theta: 0.8084984164298703
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565540313720703
+  width: 2.08243989944458
+  height: 1.35600745677948
+  polygon_point {
+    x: 592803.5159254035
+    y: 4134025.501842555
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592805.0220522364
+    y: 4134024.063740389
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592808.1749467889
+    y: 4134027.365772191
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592806.668819956
+    y: 4134028.803874357
+    z: 10.195883750915527
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930664.2795393
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 3
+    position {
+      x: 592805.8454360962
+      y: 4134026.433807373
+      z: 10.195883750915527
+    }
+    theta: 0.8084984164298703
+    length: 4.565540313720703
+    width: 2.08243989944458
+    height: 1.35600745677948
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930664.2795393
+  }
+}
+header {
+  timestamp_sec: 1701930664.2795393
+  module_name: "perception_obstacle"
+  sequence_num: 49
+  lidar_timestamp: 1701930664279539456
+}
+error_code: OK
+
+perception_obstacle {
+  id: 1
+  position {
+    x: 592812.2135543823
+    y: 4134027.3547973633
+    z: 10.19552993774414
+  }
+  theta: 3.9500907793676276
+  velocity {
+    x: -5.8082594871521
+    y: -6.085205078125
+    z: 0.0
+  }
+  length: 4.565535068511963
+  width: 2.08243465423584
+  height: 1.3560075759887695
+  polygon_point {
+    x: 592814.5430617991
+    y: 4134028.286761241
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592813.0369392564
+    y: 4134029.7248604055
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592809.8840469655
+    y: 4134026.4228334855
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592811.3901695083
+    y: 4134024.984734321
+    z: 10.19552993774414
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930664.3795393
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592812.2135543823
+    y: 4134027.3547973633
+    z: 10.19552993774414
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 1
+    position {
+      x: 592812.2135543823
+      y: 4134027.3547973633
+      z: 10.19552993774414
+    }
+    theta: 3.9500907793676276
+    length: 4.565535068511963
+    width: 2.08243465423584
+    height: 1.3560075759887695
+    velocity {
+      x: -5.8082594871521
+      y: -6.085205078125
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930664.3795393
+  }
+}
+perception_obstacle {
+  id: 3
+  position {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  theta: 0.8084984164298703
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565540313720703
+  width: 2.08243989944458
+  height: 1.35600745677948
+  polygon_point {
+    x: 592803.5159254035
+    y: 4134025.501842555
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592805.0220522364
+    y: 4134024.063740389
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592808.1749467889
+    y: 4134027.365772191
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592806.668819956
+    y: 4134028.803874357
+    z: 10.195883750915527
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930664.3795393
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 3
+    position {
+      x: 592805.8454360962
+      y: 4134026.433807373
+      z: 10.195883750915527
+    }
+    theta: 0.8084984164298703
+    length: 4.565540313720703
+    width: 2.08243989944458
+    height: 1.35600745677948
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930664.3795393
+  }
+}
+header {
+  timestamp_sec: 1701930664.3795393
+  module_name: "perception_obstacle"
+  sequence_num: 50
+  lidar_timestamp: 1701930664379539200
+}
+error_code: OK
+
+perception_obstacle {
+  id: 1
+  position {
+    x: 592811.6189956665
+    y: 4134026.732116699
+    z: 10.19552993774414
+  }
+  theta: 3.9500907793676276
+  velocity {
+    x: -5.809022426605225
+    y: -6.0821533203125
+    z: 0.0
+  }
+  length: 4.565535068511963
+  width: 2.08243465423584
+  height: 1.3560075759887695
+  polygon_point {
+    x: 592813.9485030833
+    y: 4134027.664080577
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592812.4423805405
+    y: 4134029.1021797415
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592809.2894882497
+    y: 4134025.8001528215
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592810.7956107925
+    y: 4134024.362053657
+    z: 10.19552993774414
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930664.4795392
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592811.6189956665
+    y: 4134026.732116699
+    z: 10.19552993774414
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 1
+    position {
+      x: 592811.6189956665
+      y: 4134026.732116699
+      z: 10.19552993774414
+    }
+    theta: 3.9500907793676276
+    length: 4.565535068511963
+    width: 2.08243465423584
+    height: 1.3560075759887695
+    velocity {
+      x: -5.809022426605225
+      y: -6.0821533203125
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930664.4795392
+  }
+}
+perception_obstacle {
+  id: 3
+  position {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  theta: 0.8084984164298703
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565540313720703
+  width: 2.08243989944458
+  height: 1.35600745677948
+  polygon_point {
+    x: 592803.5159254035
+    y: 4134025.501842555
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592805.0220522364
+    y: 4134024.063740389
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592808.1749467889
+    y: 4134027.365772191
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592806.668819956
+    y: 4134028.803874357
+    z: 10.195883750915527
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930664.4795392
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 3
+    position {
+      x: 592805.8454360962
+      y: 4134026.433807373
+      z: 10.195883750915527
+    }
+    theta: 0.8084984164298703
+    length: 4.565540313720703
+    width: 2.08243989944458
+    height: 1.35600745677948
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930664.4795392
+  }
+}
+header {
+  timestamp_sec: 1701930664.4795392
+  module_name: "perception_obstacle"
+  sequence_num: 51
+  lidar_timestamp: 1701930664479539200
+}
+error_code: OK
+
+perception_obstacle {
+  id: 1
+  position {
+    x: 592811.0286712646
+    y: 4134026.1138305664
+    z: 10.19552993774414
+  }
+  theta: 3.9500907793676276
+  velocity {
+    x: -5.8082594871521
+    y: -6.0821533203125
+    z: 0.0
+  }
+  length: 4.565535068511963
+  width: 2.08243465423584
+  height: 1.3560075759887695
+  polygon_point {
+    x: 592813.3581786815
+    y: 4134027.045794444
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592811.8520561387
+    y: 4134028.4838936087
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592808.6991638478
+    y: 4134025.1818666887
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592810.2052863906
+    y: 4134023.743767524
+    z: 10.19552993774414
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930664.579539
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592811.0286712646
+    y: 4134026.1138305664
+    z: 10.19552993774414
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 1
+    position {
+      x: 592811.0286712646
+      y: 4134026.1138305664
+      z: 10.19552993774414
+    }
+    theta: 3.9500907793676276
+    length: 4.565535068511963
+    width: 2.08243465423584
+    height: 1.3560075759887695
+    velocity {
+      x: -5.8082594871521
+      y: -6.0821533203125
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930664.579539
+  }
+}
+perception_obstacle {
+  id: 3
+  position {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  theta: 0.8084984164298703
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565540313720703
+  width: 2.08243989944458
+  height: 1.35600745677948
+  polygon_point {
+    x: 592803.5159254035
+    y: 4134025.501842555
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592805.0220522364
+    y: 4134024.063740389
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592808.1749467889
+    y: 4134027.365772191
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592806.668819956
+    y: 4134028.803874357
+    z: 10.195883750915527
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930664.579539
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 3
+    position {
+      x: 592805.8454360962
+      y: 4134026.433807373
+      z: 10.195883750915527
+    }
+    theta: 0.8084984164298703
+    length: 4.565540313720703
+    width: 2.08243989944458
+    height: 1.35600745677948
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930664.579539
+  }
+}
+header {
+  timestamp_sec: 1701930664.579539
+  module_name: "perception_obstacle"
+  sequence_num: 52
+  lidar_timestamp: 1701930664579538944
+}
+error_code: OK
+
+perception_obstacle {
+  id: 1
+  position {
+    x: 592810.4600448608
+    y: 4134025.5183410645
+    z: 10.19552993774414
+  }
+  theta: 3.9500907793676276
+  velocity {
+    x: -5.809022426605225
+    y: -6.085205078125
+    z: 0.0
+  }
+  length: 4.565535068511963
+  width: 2.08243465423584
+  height: 1.3560075759887695
+  polygon_point {
+    x: 592812.7895522777
+    y: 4134026.450304942
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592811.2834297349
+    y: 4134027.8884041067
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592808.130537444
+    y: 4134024.5863771867
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592809.6366599868
+    y: 4134023.148278022
+    z: 10.19552993774414
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930664.679539
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592810.4600448608
+    y: 4134025.5183410645
+    z: 10.19552993774414
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 1
+    position {
+      x: 592810.4600448608
+      y: 4134025.5183410645
+      z: 10.19552993774414
+    }
+    theta: 3.9500907793676276
+    length: 4.565535068511963
+    width: 2.08243465423584
+    height: 1.3560075759887695
+    velocity {
+      x: -5.809022426605225
+      y: -6.085205078125
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930664.679539
+  }
+}
+perception_obstacle {
+  id: 3
+  position {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  theta: 0.8084984164298703
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565540313720703
+  width: 2.08243989944458
+  height: 1.35600745677948
+  polygon_point {
+    x: 592803.5159254035
+    y: 4134025.501842555
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592805.0220522364
+    y: 4134024.063740389
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592808.1749467889
+    y: 4134027.365772191
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592806.668819956
+    y: 4134028.803874357
+    z: 10.195883750915527
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930664.679539
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 3
+    position {
+      x: 592805.8454360962
+      y: 4134026.433807373
+      z: 10.195883750915527
+    }
+    theta: 0.8084984164298703
+    length: 4.565540313720703
+    width: 2.08243989944458
+    height: 1.35600745677948
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930664.679539
+  }
+}
+header {
+  timestamp_sec: 1701930664.679539
+  module_name: "perception_obstacle"
+  sequence_num: 53
+  lidar_timestamp: 1701930664679538944
+}
+error_code: OK
+
+perception_obstacle {
+  id: 1
+  position {
+    x: 592809.8997421265
+    y: 4134024.9315490723
+    z: 10.19552993774414
+  }
+  theta: 3.9500907793676276
+  velocity {
+    x: -5.809022426605225
+    y: -6.0821533203125
+    z: 0.0
+  }
+  length: 4.565535068511963
+  width: 2.08243465423584
+  height: 1.3560075759887695
+  polygon_point {
+    x: 592812.2292495433
+    y: 4134025.86351295
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592810.7231270005
+    y: 4134027.3016121145
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592807.5702347097
+    y: 4134023.9995851945
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592809.0763572524
+    y: 4134022.56148603
+    z: 10.19552993774414
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930664.7795389
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592809.8997421265
+    y: 4134024.9315490723
+    z: 10.19552993774414
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 1
+    position {
+      x: 592809.8997421265
+      y: 4134024.9315490723
+      z: 10.19552993774414
+    }
+    theta: 3.9500907793676276
+    length: 4.565535068511963
+    width: 2.08243465423584
+    height: 1.3560075759887695
+    velocity {
+      x: -5.809022426605225
+      y: -6.0821533203125
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930664.7795389
+  }
+}
+perception_obstacle {
+  id: 3
+  position {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  theta: 0.8084984164298703
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565540313720703
+  width: 2.08243989944458
+  height: 1.35600745677948
+  polygon_point {
+    x: 592803.5159254035
+    y: 4134025.501842555
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592805.0220522364
+    y: 4134024.063740389
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592808.1749467889
+    y: 4134027.365772191
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592806.668819956
+    y: 4134028.803874357
+    z: 10.195883750915527
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930664.7795389
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 3
+    position {
+      x: 592805.8454360962
+      y: 4134026.433807373
+      z: 10.195883750915527
+    }
+    theta: 0.8084984164298703
+    length: 4.565540313720703
+    width: 2.08243989944458
+    height: 1.35600745677948
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930664.7795389
+  }
+}
+header {
+  timestamp_sec: 1701930664.7795389
+  module_name: "perception_obstacle"
+  sequence_num: 54
+  lidar_timestamp: 1701930664779538944
+}
+error_code: OK
+
+perception_obstacle {
+  id: 1
+  position {
+    x: 592809.2910690308
+    y: 4134024.294128418
+    z: 10.19552993774414
+  }
+  theta: 3.9500907793676276
+  velocity {
+    x: -5.809022426605225
+    y: -6.085205078125
+    z: 0.0
+  }
+  length: 4.565535068511963
+  width: 2.08243465423584
+  height: 1.3560075759887695
+  polygon_point {
+    x: 592811.6205764476
+    y: 4134025.2260922957
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592810.1144539048
+    y: 4134026.6641914602
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592806.961561614
+    y: 4134023.36216454
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592808.4676841567
+    y: 4134021.9240653757
+    z: 10.19552993774414
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930664.8795388
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592809.2910690308
+    y: 4134024.294128418
+    z: 10.19552993774414
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 1
+    position {
+      x: 592809.2910690308
+      y: 4134024.294128418
+      z: 10.19552993774414
+    }
+    theta: 3.9500907793676276
+    length: 4.565535068511963
+    width: 2.08243465423584
+    height: 1.3560075759887695
+    velocity {
+      x: -5.809022426605225
+      y: -6.085205078125
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930664.8795388
+  }
+}
+perception_obstacle {
+  id: 3
+  position {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  theta: 0.8084984164298703
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565540313720703
+  width: 2.08243989944458
+  height: 1.35600745677948
+  polygon_point {
+    x: 592803.5159254035
+    y: 4134025.501842555
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592805.0220522364
+    y: 4134024.063740389
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592808.1749467889
+    y: 4134027.365772191
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592806.668819956
+    y: 4134028.803874357
+    z: 10.195883750915527
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930664.8795388
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 3
+    position {
+      x: 592805.8454360962
+      y: 4134026.433807373
+      z: 10.195883750915527
+    }
+    theta: 0.8084984164298703
+    length: 4.565540313720703
+    width: 2.08243989944458
+    height: 1.35600745677948
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930664.8795388
+  }
+}
+header {
+  timestamp_sec: 1701930664.8795388
+  module_name: "perception_obstacle"
+  sequence_num: 55
+  lidar_timestamp: 1701930664879538688
+}
+error_code: OK
+
+perception_obstacle {
+  id: 1
+  position {
+    x: 592808.7114715576
+    y: 4134023.687072754
+    z: 10.19552993774414
+  }
+  theta: 3.9500907793676276
+  velocity {
+    x: -5.809022426605225
+    y: -6.0821533203125
+    z: 0.0
+  }
+  length: 4.565535068511963
+  width: 2.08243465423584
+  height: 1.3560075759887695
+  polygon_point {
+    x: 592811.0409789744
+    y: 4134024.6190366317
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592809.5348564317
+    y: 4134026.057135796
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592806.3819641408
+    y: 4134022.755108876
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592807.8880866836
+    y: 4134021.3170097116
+    z: 10.19552993774414
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930664.9795387
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592808.7114715576
+    y: 4134023.687072754
+    z: 10.19552993774414
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 1
+    position {
+      x: 592808.7114715576
+      y: 4134023.687072754
+      z: 10.19552993774414
+    }
+    theta: 3.9500907793676276
+    length: 4.565535068511963
+    width: 2.08243465423584
+    height: 1.3560075759887695
+    velocity {
+      x: -5.809022426605225
+      y: -6.0821533203125
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930664.9795387
+  }
+}
+perception_obstacle {
+  id: 3
+  position {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  theta: 0.8084984164298703
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565540313720703
+  width: 2.08243989944458
+  height: 1.35600745677948
+  polygon_point {
+    x: 592803.5159254035
+    y: 4134025.501842555
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592805.0220522364
+    y: 4134024.063740389
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592808.1749467889
+    y: 4134027.365772191
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592806.668819956
+    y: 4134028.803874357
+    z: 10.195883750915527
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930664.9795387
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 3
+    position {
+      x: 592805.8454360962
+      y: 4134026.433807373
+      z: 10.195883750915527
+    }
+    theta: 0.8084984164298703
+    length: 4.565540313720703
+    width: 2.08243989944458
+    height: 1.35600745677948
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930664.9795387
+  }
+}
+header {
+  timestamp_sec: 1701930664.9795387
+  module_name: "perception_obstacle"
+  sequence_num: 56
+  lidar_timestamp: 1701930664979538688
+}
+error_code: OK
+
+perception_obstacle {
+  id: 1
+  position {
+    x: 592808.4517440796
+    y: 4134023.41506958
+    z: 10.19552993774414
+  }
+  theta: 3.9500907793676276
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565535068511963
+  width: 2.08243465423584
+  height: 1.3560075759887695
+  polygon_point {
+    x: 592810.7812514964
+    y: 4134024.347033458
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592809.2751289536
+    y: 4134025.7851326223
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592806.1222366628
+    y: 4134022.4831057023
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592807.6283592056
+    y: 4134021.045006538
+    z: 10.19552993774414
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930665.0795386
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592808.4517440796
+    y: 4134023.41506958
+    z: 10.19552993774414
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 1
+    position {
+      x: 592808.4517440796
+      y: 4134023.41506958
+      z: 10.19552993774414
+    }
+    theta: 3.9500907793676276
+    length: 4.565535068511963
+    width: 2.08243465423584
+    height: 1.3560075759887695
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930665.0795386
+  }
+}
+perception_obstacle {
+  id: 3
+  position {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  theta: 0.8084984164298703
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565540313720703
+  width: 2.08243989944458
+  height: 1.35600745677948
+  polygon_point {
+    x: 592803.5159254035
+    y: 4134025.501842555
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592805.0220522364
+    y: 4134024.063740389
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592808.1749467889
+    y: 4134027.365772191
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592806.668819956
+    y: 4134028.803874357
+    z: 10.195883750915527
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930665.0795386
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 3
+    position {
+      x: 592805.8454360962
+      y: 4134026.433807373
+      z: 10.195883750915527
+    }
+    theta: 0.8084984164298703
+    length: 4.565540313720703
+    width: 2.08243989944458
+    height: 1.35600745677948
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930665.0795386
+  }
+}
+header {
+  timestamp_sec: 1701930665.0795386
+  module_name: "perception_obstacle"
+  sequence_num: 57
+  lidar_timestamp: 1701930665079538688
+}
+error_code: OK
+
+perception_obstacle {
+  id: 1
+  position {
+    x: 592808.4517440796
+    y: 4134023.41506958
+    z: 10.19552993774414
+  }
+  theta: 3.9500907793676276
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565535068511963
+  width: 2.08243465423584
+  height: 1.3560075759887695
+  polygon_point {
+    x: 592810.7812514964
+    y: 4134024.347033458
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592809.2751289536
+    y: 4134025.7851326223
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592806.1222366628
+    y: 4134022.4831057023
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592807.6283592056
+    y: 4134021.045006538
+    z: 10.19552993774414
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930665.1795385
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592808.4517440796
+    y: 4134023.41506958
+    z: 10.19552993774414
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 1
+    position {
+      x: 592808.4517440796
+      y: 4134023.41506958
+      z: 10.19552993774414
+    }
+    theta: 3.9500907793676276
+    length: 4.565535068511963
+    width: 2.08243465423584
+    height: 1.3560075759887695
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930665.1795385
+  }
+}
+perception_obstacle {
+  id: 3
+  position {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  theta: 0.8084984164298703
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565540313720703
+  width: 2.08243989944458
+  height: 1.35600745677948
+  polygon_point {
+    x: 592803.5159254035
+    y: 4134025.501842555
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592805.0220522364
+    y: 4134024.063740389
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592808.1749467889
+    y: 4134027.365772191
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592806.668819956
+    y: 4134028.803874357
+    z: 10.195883750915527
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930665.1795385
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 3
+    position {
+      x: 592805.8454360962
+      y: 4134026.433807373
+      z: 10.195883750915527
+    }
+    theta: 0.8084984164298703
+    length: 4.565540313720703
+    width: 2.08243989944458
+    height: 1.35600745677948
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930665.1795385
+  }
+}
+header {
+  timestamp_sec: 1701930665.1795385
+  module_name: "perception_obstacle"
+  sequence_num: 58
+  lidar_timestamp: 1701930665179538432
+}
+error_code: OK
+
+perception_obstacle {
+  id: 1
+  position {
+    x: 592808.4517440796
+    y: 4134023.41506958
+    z: 10.19552993774414
+  }
+  theta: 3.9500907793676276
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565535068511963
+  width: 2.08243465423584
+  height: 1.3560075759887695
+  polygon_point {
+    x: 592810.7812514964
+    y: 4134024.347033458
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592809.2751289536
+    y: 4134025.7851326223
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592806.1222366628
+    y: 4134022.4831057023
+    z: 10.19552993774414
+  }
+  polygon_point {
+    x: 592807.6283592056
+    y: 4134021.045006538
+    z: 10.19552993774414
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930665.2795384
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592808.4517440796
+    y: 4134023.41506958
+    z: 10.19552993774414
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 1
+    position {
+      x: 592808.4517440796
+      y: 4134023.41506958
+      z: 10.19552993774414
+    }
+    theta: 3.9500907793676276
+    length: 4.565535068511963
+    width: 2.08243465423584
+    height: 1.3560075759887695
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930665.2795384
+  }
+}
+perception_obstacle {
+  id: 3
+  position {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  theta: 0.8084984164298703
+  velocity {
+    x: 0.0
+    y: -0.0
+    z: 0.0
+  }
+  length: 4.565540313720703
+  width: 2.08243989944458
+  height: 1.35600745677948
+  polygon_point {
+    x: 592803.5159254035
+    y: 4134025.501842555
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592805.0220522364
+    y: 4134024.063740389
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592808.1749467889
+    y: 4134027.365772191
+    z: 10.195883750915527
+  }
+  polygon_point {
+    x: 592806.668819956
+    y: 4134028.803874357
+    z: 10.195883750915527
+  }
+  tracking_time: 0.0
+  type: VEHICLE
+  timestamp: 1701930665.2795384
+  acceleration {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  anchor_point {
+    x: 592805.8454360962
+    y: 4134026.433807373
+    z: 10.195883750915527
+  }
+  sub_type: ST_CAR
+  measurements {
+    sensor_id: "velodyne128"
+    id: 3
+    position {
+      x: 592805.8454360962
+      y: 4134026.433807373
+      z: 10.195883750915527
+    }
+    theta: 0.8084984164298703
+    length: 4.565540313720703
+    width: 2.08243989944458
+    height: 1.35600745677948
+    velocity {
+      x: 0.0
+      y: -0.0
+      z: 0.0
+    }
+    type: VEHICLE
+    sub_type: ST_CAR
+    timestamp: 1701930665.2795384
+  }
+}
+header {
+  timestamp_sec: 1701930665.2795384
+  module_name: "perception_obstacle"
+  sequence_num: 59
+  lidar_timestamp: 1701930665279538432
+}
+error_code: OK
+
