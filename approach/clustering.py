@@ -466,7 +466,7 @@ def compute_and_fill_features(df, feature_definitions):
 
 # Read data
 ### 1.edit root_path
-root_path = 'assets/1npccutin/'
+root_path = 'assets/case1-lane_borrow/'
 
 df = pd.read_csv(root_path+'data_processed.csv')
 
@@ -477,14 +477,14 @@ y_df = y_df.rename(columns={'result': '0'})
 
 ### 2.interface with LLM agent
 feature_definitions = {
-    'LaneChange' : "abs(df['heading'] - df['NPC1Theta'])",
+    'RelativeHeading' : "abs(df['heading'] - df['NPC1Theta'])",
 }
 GPT_iter = 1
 df = compute_and_fill_features(df, feature_definitions)
 
-### 3.Use 0.5,10 for sensitive data; Vice versa 1.5,8
+### 3.Use default parameters
 df_proceed = pd.DataFrame()
-feature_list = [('NPC1Theta',2.5, 8)] 
+feature_list = [('RelativeHeading',1.5, 8)] 
 
 for i, feature_set in enumerate(feature_list):
     df_feature = process_one_feature(df, y_df, feature_set)

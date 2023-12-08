@@ -2,36 +2,33 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-### 读取数据，图数量
+### read data
 timeseries = pd.read_csv('assets/1npccutin/data_processed.csv', index_col=0)
 
-# 获取所有的唯一id
+# Get all unique ids
 unique_ids = timeseries['id'].unique()
 print(len(unique_ids))
 selected_ids = np.random.choice(unique_ids, size=15, replace=False)
 
-# 创建一个新的图形
 plt.figure(figsize=(10, 10))
 
-# 为每个选定的id绘制轨迹
+# Draw a trace for each selected id
 for uid in selected_ids:
-    # 提取当前id的数据
+    # Extract the data for the current id
     subset = timeseries.query(f'id=={uid}')
-    
-    # 绘制ego的数据
+
+    # Draw ego data
     plt.plot(subset['egoX'], subset['egoY'], label=f'Ego ID: {uid}')
-    
-    # 绘制npc的数据
+
+    # Draw the npc's data
     plt.plot(subset['NPC1X'], subset['NPC1Y'], linestyle='dashed', label=f'NPC ID: {uid}')
 
-# 添加标题和标签
 plt.title('Ego vs NPC')
 plt.xlabel('X Coordinate')
 plt.ylabel('Y Coordinate')
 plt.legend()
 plt.grid(True)
 
-# 显示图形
 plt.show()
 
 

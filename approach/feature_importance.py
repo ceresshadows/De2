@@ -9,8 +9,8 @@ import re
 from sklearn.inspection import permutation_importance
 
 ### Change the path
-root_path='assets/1npccutin/'
-GPT_iter =4
+root_path='assets/case1-lane_borrow/'
+GPT_iter = 1
 
 # Read data
 df = pd.read_csv(root_path+str(GPT_iter)+'event_extracted.csv')
@@ -38,15 +38,21 @@ nan_ratio_per_feature = X.isna().mean(axis=0) # Calculates the NaN ratio for eac
 
 # Update Confidence
 for feature, nan_ratio in zip(X.columns, nan_ratio_per_feature):
-    expanded_confidence[feature] = expanded_confidence[feature] * (1 - nan_ratio)  # 更新 confidence
-# print(expanded_confidence.columns)
+    expanded_confidence[feature] = expanded_confidence[feature] * (1 - nan_ratio)  # update confidence
 
 # Data preprocessing: Fill NaN with the median
 X.fillna(X.median(), inplace=True)
 
-### Determine the X and y datasets (do you want to add static features!!)
+noise_scale = 0.1
+# Generate white noise with the same length as the dataframe
+white_noise = np.random.normal(loc=0.0, scale=noise_scale, size=len(X))
+# Add the white noise to the dataframe
+X['noise'] = white_noise
+expanded_confidence['noise'] = 0.7
+
+### Determine the X and y datasets (do you want to add static features?)
 features_df = pd.read_csv(root_path+'features.csv')
-static_feature_names = ['rain', 'fog', 'wetness', 'noise', 'damage', 'daytime']
+static_feature_names = ['rain', 'fog', 'wetness', 'damage', 'daytime']
 selected_features = features_df[static_feature_names]
 X = pd.concat([X, selected_features], axis=1)
 
