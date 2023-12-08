@@ -8,9 +8,9 @@ import matplotlib.image as mpimg
 import matplotlib.transforms as mtransforms
 
 ### edit before run
-iters_to_process = [1,4]
+iters_to_process = [3]
  
-root_path = 'assets/1npccutin/'
+root_path = 'assets/case1-lane_borrow/'
 description = {}
 
 def key_state_and_icon(iter_to_process):
