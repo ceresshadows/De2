@@ -10,7 +10,7 @@ from sklearn.inspection import permutation_importance
 
 ### Change the path
 root_path='assets/case1-lane_borrow/'
-GPT_iter = 1
+GPT_iter = 3
 
 # Read data
 df = pd.read_csv(root_path+str(GPT_iter)+'event_extracted.csv')

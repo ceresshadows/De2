@@ -135,13 +135,6 @@ def align_series(target_length, series):
     
     return aligned_series
 
-# Example usage:
-target_length = 100  # Replace with your desired target length
-average_series_1 = np.array([1, 2, 3, 4, 5])  # Replace with your actual series
-
-# Now, you should be able to assign it to a column in your DataFrame without encountering a ValueError.
-average_series_1_aligned = align_series(target_length, average_series_1)
-
 def fuse_and_map(all_series, average_series_1, event_template_1, ids_to_check, feature, rpt_pen):
     """mapped_events, prior_list = fuse_and_map(all_series, average_series_1, event_template_1, ids_to_check, feature, rpt_pen)"""
     dtw_paths = []
@@ -224,10 +217,10 @@ def fuse_and_map(all_series, average_series_1, event_template_1, ids_to_check, f
     # The last value of event_template is not needed, we can remove it
     event_starts = event_template_1[:-1]
 
-    # 使用正则表达式来匹配事件名和编号
+    # Use regular expressions to match event names and numbers
     pattern = re.compile(r"([\w]+_\d+)")
 
-    # 获取 attributes_df 中的所有独特的事件名（例如：'brake_1', 'brake_2', ...）
+    # Gets all the unique event names in attributes_df (e.g. 'brake_1', 'brake_2',...)
     event_names = set(match.group(1) for col in attributes_df.columns for match in [pattern.match(col)] if match)
 
     # Add a new column for each event name and each start time
@@ -477,14 +470,14 @@ y_df = y_df.rename(columns={'result': '0'})
 
 ### 2.interface with LLM agent
 feature_definitions = {
-    'RelativeHeading' : "abs(df['heading'] - df['NPC1Theta'])",
+    'RelativeX' : "df['egoLaneOffset']-df['NPC1LaneOffset']",
 }
-GPT_iter = 1
+GPT_iter = 3
 df = compute_and_fill_features(df, feature_definitions)
 
 ### 3.Use default parameters
 df_proceed = pd.DataFrame()
-feature_list = [('RelativeHeading',1.5, 8)] 
+feature_list = [('RelativeX',1.5, 8)] 
 
 for i, feature_set in enumerate(feature_list):
     df_feature = process_one_feature(df, y_df, feature_set)

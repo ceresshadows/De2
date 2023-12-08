@@ -7,9 +7,9 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import matplotlib.transforms as mtransforms
 
-### 需要处理的
+### edit before run
 iters_to_process = [1,4]
- ##还要自己提取的。。。
+ 
 root_path = 'assets/1npccutin/'
 description = {}
 
@@ -31,17 +31,15 @@ def key_state_and_icon(iter_to_process):
             else:
                 y1, y2 = 0.8, 0.2
             ax.plot([0.2, 0.8], [y1, y2], color='r', linewidth=2)
-            # ax.text(0.5, 0.1, f'the {attribute_name} of {feature_name} = {key_att:.2f}', horizontalalignment='center', fontsize=15)
-            
+         
         ax.spines['top'].set_visible(False)
         ax.spines['right'].set_visible(False)
         ax.xaxis.set_ticks([])
         ax.yaxis.set_ticks([])
             
-        file_path = os.path.join(root_path+'mini_plots/', f"{whole_feature_name}.png")  # 创建完整的文件路径
-        plt.savefig(file_path)  # 保存图形
-    
-        # plt.show()
+        file_path = os.path.join(root_path+'mini_plots/', f"{whole_feature_name}.png") 
+        plt.savefig(file_path)  
+
 
     state_df = pd.read_csv(root_path+str(iter_to_process)+'as_attributes_fi.csv')
     columns = state_df.columns
@@ -56,11 +54,11 @@ def key_state_and_icon(iter_to_process):
         key_start = state_df[feature_name+'_'+number+'_start'].iloc[0]
         description[key_start+1]=f'The key feature of scenario is the trigger time of {feature_name} that is {key_att:.2f}.' 
         return feature_name+'_'+number, key_att, key_start
-    # 遍历每个列名
+
     for column in columns:
         if "start" in column:
             continue
-        # 使用正则表达式匹配列名，添加了否定前视断言来排除包含 "_start" 的列名
+        # Match column names with a regular expression, and add a negative lookahead assertion to exclude column names that contain "_start"
         match = re.match(r"(.+?)_(\d+)_(.+)", column)
         if match:
             feature_name, number, attribute_name = match.groups()           
@@ -69,46 +67,46 @@ def key_state_and_icon(iter_to_process):
         else:
             print(f"Not matched: {column}")
         key_start = state_df[feature_name+'_'+number+'_start'].iloc[0]
-        # 调用函数创建图标
+        # Call the function to create the icon
         plot_icon(whole_feature_name, feature_name, attribute_name, key_att)
     description[key_start+1]=f'The key feature of scenario is the {attribute_name} of {feature_name} becomes {key_att:.2f}.' 
     return feature_name+'_'+number, key_att, key_start
 
 def mini_plot_and_delta(start_time, event_name):
-    # collision的单独处理，比如start_time =-1
+    # Separate handling of collision, such as start_time =-1
     df = pd.read_csv(root_path+'data_processed.csv')
     df_y = pd.read_csv(root_path+'features.csv')
-    # 过滤数据框以仅包含 result 为 1 的行
+    # Filter the data box to contain only rows with result 1
     df_filtered = df_y[df_y['result'] == 1]
-    # 从过滤后的数据框中随机选择 10 个（或尽可能多的）唯一 id
+    # Select 10 (or as many) unique ids at random from the filtered data box
     ids_to_average = random.sample(list(df_filtered['id'].unique()), min(len(df_filtered), 10))
 
-    ### 是否有多个NPC
+    ### Whether there are multiple NPCs
     features_to_av = ['egoX', 'egoY', 'heading', 'NPC1X', 'NPC1Y', 'NPC1Theta']
-    # 进一步过滤数据，只保留 ids_to_average 中的 id
+    # The data is further filtered and only the id in ids_to_average is retained
     df_filtered = df_filtered[df_filtered['id'].isin(ids_to_average)]
-    # 根据 id 分组数据，然后在每个组中选择第?行
+    # Group the data by id, and then select the row in each group
     if start_time == -1:
         df_filtered = df.groupby('id').apply(lambda x: x.iloc[-1]).dropna()
     df_filtered = df.groupby('id').apply(lambda x: x.iloc[start_time] if len(x) > start_time else None).dropna()
     average_values = {}
     for feature in features_to_av:
-        # 计算过滤后的数据框中每个特征的平均值，并将其存储在字典中
+        # Calculate the average value of each feature in the filtered data box and store it in the dictionary
         average_values[feature] = np.mean(df_filtered[feature])
 
-    global X_LIM, Y_LIM  # 使用全局变量 
+    global X_LIM, Y_LIM   
     def plot_car(x, y, angle, car_icon, ax):
         im = ax.imshow(car_icon, extent=[x - 6, x + 6, y - 6, y + 6])
         rotate_transform = mtransforms.Affine2D().rotate_deg_around(x, y, angle*180/np.pi) + ax.transData
         im.set_transform(rotate_transform)
     ego_icon_path = 'assets/plot/ego.png'
     npc_icon_path = 'assets/plot/npc.png'
-    # 加载车辆图标
+    
     ego_icon = mpimg.imread(ego_icon_path)
     npc_icon = mpimg.imread(npc_icon_path)
 
     fig, ax = plt.subplots()
-    # 如果是第一次调用函数，根据车辆位置设置坐标轴范围
+    # If you call the function for the first time, set the axis range based on the vehicle position
     if X_LIM is None or Y_LIM is None:
         X_LIM = (min(average_values['egoX'], average_values['NPC1X']) - 25, 
                  max(average_values['egoX'], average_values['NPC1X']) + 10)
@@ -118,17 +116,12 @@ def mini_plot_and_delta(start_time, event_name):
     ax.set_xlim(*X_LIM)
     ax.set_ylim(*Y_LIM)
 
-    # 画车辆
     plot_car(average_values['egoX'], average_values['egoY'], average_values['heading'], ego_icon, ax)
     plot_car(average_values['NPC1X'], average_values['NPC1Y'], average_values['NPC1Theta'], npc_icon, ax)
 
-    # 显示图形
-    
-    # 保存图形
-    file_path = os.path.join(root_path+'mini_plots/', f"{event_name}.png")  # 创建完整的文件路径
+    file_path = os.path.join(root_path+'mini_plots/', f"{event_name}.png")  
     plt.savefig(file_path)  
 
-    # 关闭图形，释放资源
     plt.close(fig)
     global description
     if start_time == -1:
@@ -145,90 +138,68 @@ def action_plot(start, end):
     df_y = pd.read_csv(root_path+'features.csv')
     df_y_1 = df_y[df_y['result'] == 1]
     df_y_0 = df_y[df_y['result'] == 0]
-    # id分类
+    # id classification
     ids_1 = df_y_1['id'].unique()
     ids_0 = df_y_0['id'].unique()
     features_to_av = ['throttle', 'brake', 'steering']
-    # 进一步过滤数据，只保留特定id的项
+    # Filter the data further to keep only items with a specific id
     df_data_1 = df[df['id'].isin(ids_1)]
     df_data_0 = df[df['id'].isin(ids_0)]
-    # 计算取样点
+    # Calculated sampling point
     if end != -1:
         detect_point = (start + end) // 2
-        print(f"End != -1, detect_point set to: {detect_point}")  # 打印 detect_point 的值
+        print(f"End != -1, detect_point set to: {detect_point}")  # Prints the value of detect_point
     else:
         detect_point_func = lambda x: min((start + len(x)) // 2,len(x)-5)
         detect_point = int(df.groupby('id').apply(lambda x: detect_point_func(x)).mean())
-        print(f"End == -1, detect_point set to: {detect_point}")  # 打印 detect_point 的值
+        print(f"End == -1, detect_point set to: {detect_point}")  # Prints the value of detect_point
 
-    # 按取样点取值
+    # Value by sampling point
     df_detected_1 = df_data_1.groupby('id').apply(
         lambda x: x.iloc[detect_point_func(x)] if end == -1 else (x.iloc[detect_point] if len(x) > detect_point else None)
     ).dropna()
     df_detected_0 = df_data_0.groupby('id').apply(
         lambda x: x.iloc[detect_point_func(x)] if end == -1 else (x.iloc[detect_point] if len(x) > detect_point else None)
     ).dropna()
-    # print(df_detected_0.shape[0], df_detected_1.shape[0])
-    # 假设 df_detected_0 和 df_detected_1 是你已经有的数据
-    features_to_av = ['throttle', 'brake', 'steering']  # 你想要绘制的特征列表
+    features_to_av = ['throttle', 'brake', 'steering']  # Draw feature list
 
-    # 创建一个新的图形
+    # Create a new graphic
     plt.figure(figsize=(10, 6))
     for i, feature in enumerate(features_to_av):
-        # 获取每个特征的数据
-        data_0 = df_detected_0[feature].dropna()  # 获取组0的数据并删除NaN值
-        data_1 = df_detected_1[feature].dropna()  # 获取组1的数据并删除NaN值
-        
-        # 保存原始数据的均值
+        # Get data for each feature
+        data_0 = df_detected_0[feature].dropna() # Gets the data for group 0 and deletes the NaN value
+        data_1 = df_detected_1[feature].dropna() # Get the data for group 1 and delete the NaN value
+
+        # Save the mean of the original data
         mean_0_original = data_0.mean()
         mean_1_original = data_1.mean()
-        
-        # 缩放数据
+
+        # Scale data
         max_value = max(data_0.max(), data_1.max())
         min_value = min(data_0.min(), data_1.min())
         range_value = max_value - min_value
         data_0 = (data_0 - min_value) / range_value
         data_1 = (data_1 - min_value) / range_value
-        
-        # 创建箱线图
+
+        # Create a box diagram
         bplot1 = plt.boxplot(data_0, positions=[i*3], widths=0.6, patch_artist=True,
-                             boxprops=dict(facecolor='yellow'), medianprops=dict(color='black'), labels=['No Collision'])  # 组0绿色
+        boxprops=dict(facecolor='yellow'), medianprops=dict(color='black'), labels=['No Collision']) # Group 0 Green
         bplot2 = plt.boxplot(data_1, positions=[i*3+1], widths=0.6, patch_artist=True,
-                             boxprops=dict(facecolor='pink'), medianprops=dict(color='black'), labels=['Collision'])  # 组1红色
-        
-        # 添加均值标签（使用原始数据的均值）
+        boxprops=dict(facecolor='pink'), medianprops=dict(color='black'), labels=['Collision']) # Group 1 red
+
+        # Add the mean tag (using the mean of the raw data)
         plt.text(i*3, data_0.mean(), f'{mean_0_original:.2f}', ha='center', va='center', color='black', fontsize=28)
         plt.text(i*3+1, data_1.mean(), f'{mean_1_original:.2f}', ha='center', va='center', color='black', fontsize=28)
 
-    # 设置x轴的标签
+    # Set the label for the X-axis
     plt.xticks(np.arange(len(features_to_av)) * 3 + 0.5, features_to_av, fontsize=28)
-    
-    # 添加图例
+
+    # Add legend
     plt.legend([bplot1["boxes"][0], bplot2["boxes"][0]], ['No Collision', 'Collision'], loc='upper right')
     
-    file_path = os.path.join(root_path+'mini_plots/', f"action_{detect_point}.png")  # 创建完整的文件路径
-    plt.savefig(file_path)  # 保存图形
-    # 显示图形
-    # plt.show()
-    # for feature in features_to_av:
-    #     # 计算过滤后的数据框中每个特征的平均值，并将其存储在字典中
-    #     average_values[feature] = np.mean(df_filtered[feature])
-    # def plot_dashboard(data, detect_point):
-    #     fig, axs = plt.subplots(len(data), 1, figsize=(5, 2))
-        
-    #     for ax, (key, value) in zip(axs, data.items()):
-    #         # 显示文本
-    #         ax.text(0.5, 0.5, f'{key}: {value:.2f}', 
-    #                 horizontalalignment='center', verticalalignment='center', fontsize=20)  # 调整文本大小和位置
-            
-    #         ax.axis('off')
+    file_path = os.path.join(root_path+'mini_plots/', f"action_{detect_point}.png") 
+    plt.savefig(file_path) 
 
-    #     plt.tight_layout()
-    #     file_path = os.path.join(root_path+'mini_plots/', f"action_{detect_point}.png")  # 创建完整的文件路径
-    #     plt.savefig(file_path)  # 保存图形
-    #     # plt.show()
-    # # 调用函数创建仪表盘
-    # plot_dashboard(average_values,detect_point)
     global description 
     description[detect_point] = f"""The action of ego now is throttle: {df_detected_1["throttle"].mean():.2f}, 
             brake: {df_detected_1["brake"].mean():.2f}, steering: {df_detected_1["steering"].mean():.2f},
@@ -236,20 +207,20 @@ def action_plot(start, end):
             throttle: {df_detected_1["throttle"].mean():.2f}, brake: {df_detected_0["brake"].mean():.2f}, steering: {df_detected_0["steering"].mean():.2f}"""
     return detect_point
 
-# 定义全局变量来存储坐标轴范围
+# Define a global variable to store the axis range
 X_LIM = None
 Y_LIM = None
 
 attributes, starts, event_names =[], [], []
 actions = []
-# 场景状态点——GPT个
+# Scene status point
 for i in iters_to_process:
     event_name, att, start = key_state_and_icon(i)
     attributes.append(att)
     starts.append(start)
     event_names.append(event_name)
 
-# 动作点——GPT个
+# Operating point
 for i in range(len(starts)):
     seg_start = starts[i]
     if i != len(starts)-1:
@@ -259,7 +230,7 @@ for i in range(len(starts)):
     actions.append(action_plot(seg_start,seg_end))
 # mini_plot_and_delta(50, 'collision')
 
-# 初始，每个状态点，Collision，都要——共GPT+1个小图
+# initial point, every state point and Collision
 for i in range(len(iters_to_process)+2):
     if i ==0: # initial
         mini_plot_and_delta(max(0,starts[0]-18), 'initial')
@@ -268,10 +239,10 @@ for i in range(len(iters_to_process)+2):
     else:
         mini_plot_and_delta(starts[i-1], event_names[i-1])
    
-# 按键排序
+# Key sort
 sorted_description = sorted(description.items())
 
-# 打印每个键值对
+# Print each key-value pair
 for key, value in sorted_description:
     if key == 1000:
         print(f'At collision point, {value}')
