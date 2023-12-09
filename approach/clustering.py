@@ -459,7 +459,7 @@ def compute_and_fill_features(df, feature_definitions):
 
 # Read data
 ### 1.edit root_path
-root_path = 'assets/case1-lane_borrow/'
+root_path = 'assets/case2-fail_to_yield/'
 
 df = pd.read_csv(root_path+'data_processed.csv')
 
@@ -470,14 +470,14 @@ y_df = y_df.rename(columns={'result': '0'})
 
 ### 2.interface with LLM agent
 feature_definitions = {
-    'RelativeX' : "df['egoLaneOffset']-df['NPC1LaneOffset']",
+    'RelativeAngle' : "df['heading']-df['NPC1Theta']",
 }
-GPT_iter = 3
+GPT_iter = 1
 df = compute_and_fill_features(df, feature_definitions)
 
 ### 3.Use default parameters
 df_proceed = pd.DataFrame()
-feature_list = [('RelativeX',1.5, 8)] 
+feature_list = [('RelativeAngle', 5, 20)] #1.5, 8
 
 for i, feature_set in enumerate(feature_list):
     df_feature = process_one_feature(df, y_df, feature_set)
