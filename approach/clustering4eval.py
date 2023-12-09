@@ -378,8 +378,6 @@ def process_one_feature(df_kept, y_df_kept, feature):
     # because the data of 1 is to be used as the event template and mapped back to all the original sequences
     ids_1 = (y_df_kept[y_df_kept.iloc[:, -1] == 1].iloc[:, 0]).tolist()
     ids_all = y_df_kept.iloc[:, 0].tolist()
-    print("ids_1: ", ids_1)
-    print("ids_all: ", ids_all)
     # First get the event template with label=1 by clustering
     all_series_1 = [df_kept[df_kept['id'] == i][feature].values for i in ids_1]
     reference_sequence_1 = hierarchical_clustering_and_reference(all_series_1, threshold=cluster_thres)
@@ -396,15 +394,19 @@ def process_one_feature(df_kept, y_df_kept, feature):
 
     # Process all samples and update df_feature
     for idx, series in enumerate(all_series):
-        idx+=1
         filter_list, likelihood = process_mapped_events(all_series[idx], mapped_events[idx], original_events[idx])
         prior = prior_list[idx]  # Gets the corresponding confidence value
         tmp = event_attributs(series, filter_list, prior, likelihood, feature)
         # Gets the label corresponding to the current id
-        print("!!!!idx",idx)
-        print("!!!!y_df_kept",y_df_kept.iloc[:, 0])
+        idx+=1
         row_index = y_df_kept.index[y_df_kept.iloc[:, 0] == idx][0]
-        current_label = y_df_kept.iloc[row_index, 1]
+        matching_row = y_df_kept[y_df_kept.iloc[:, 0] == row_index]
+
+        # 如果找到了匹配的行，则提取第二列的值
+        if not matching_row.empty:
+            current_label = matching_row.iloc[0, 1]
+        else:
+            current_label = None  # 没有找到匹配的行
         
         # Add label to tmp DataFrame
         tmp['result'] = current_label
@@ -438,7 +440,15 @@ def process_one_feature(df_kept, y_df_kept, feature):
         plot_events(tmp, axis, selected_series[idx], feature, filter_list)
 
         # Gets the label corresponding to the current id
-        current_label = y_df_kept.loc[ids_all.index(ids_to_check[idx]), '0']
+        index_to_check = ids_all.index(ids_to_check[idx])
+        # 在 y_df_kept 中找到第一列等于 index_to_check 的行，并返回第二列的值
+        matching_row = y_df_kept[y_df_kept.iloc[:, 0] == index_to_check]
+        # 提取第二列的值
+        if not matching_row.empty:
+            current_label = matching_row.iloc[0, 1]
+        else:
+            current_label = None  # 如果没有找到匹配的行
+
 
         # Add label information to the chart title
         # axis.set_title(f"ID: {ids_to_check[idx]}, Label: {current_label}")
@@ -508,6 +518,7 @@ for i in range(k_fold):
     y_df_kept.iloc[:, 0] = y_df_kept.iloc[:, 0] - (y_df_kept.iloc[:, 0].min() - 1)
     df_feature = process_one_feature(df_kept, y_df_kept, feature_set)  # 运行您的函数
     print(f"实验 {i+1} 的结果:\n{df_feature}")
+    df_feature.to_csv(root_path+'eval'+str(i+1)+'.csv', index=False)
 
 
 # for i, feature_set in enumerate(feature_list):

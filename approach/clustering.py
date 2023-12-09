@@ -481,6 +481,7 @@ feature_list = [('RelativeX',1.5, 8)]
 
 for i, feature_set in enumerate(feature_list):
     df_feature = process_one_feature(df, y_df, feature_set)
+    df_feature.to_csv(root_path+'eval.csv', index=False)
     # If it is not the first iteration and the new feature data box contains the "result" column, delete it
     if i != 0 and 'result' in df_feature.columns:
         df_feature = df_feature.drop(columns=['result'])
