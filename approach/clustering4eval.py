@@ -371,20 +371,21 @@ def plot_events(tmp, axis, signal, feature, result):
     axis.legend()
 
 
-def process_one_feature(df_kept, y_df_kept, feature):
+def process_one_feature(df, y_df, feature):
     feature, rpt_pen, cluster_thres = feature_set[0], float(feature_set[1]), float(feature_set[2])
 
     # Extract the label ids of 1 separately
     # because the data of 1 is to be used as the event template and mapped back to all the original sequences
-    ids_1 = (y_df_kept[y_df_kept.iloc[:, -1] == 1].iloc[:, 0]).tolist()
-    ids_all = y_df_kept.iloc[:, 0].tolist()
+    ids_1 = (y_df[y_df['0'] == 1].index + 1).tolist()
+    ids_all = (y_df.index + 1).tolist()
+
     # First get the event template with label=1 by clustering
-    all_series_1 = [df_kept[df_kept['id'] == i][feature].values for i in ids_1]
+    all_series_1 = [df[df['id'] == i][feature].values for i in ids_1]
     reference_sequence_1 = hierarchical_clustering_and_reference(all_series_1, threshold=cluster_thres)
     event_template_1, average_series_1 = get_event_template(reference_sequence_1, all_series_1, rpt_pen)
 
     # Map back to the original sequence of 0 and 1 using the template of 1
-    all_series = [df_kept[df_kept['id'] == i][feature].values for i in ids_all]
+    all_series = [df[df['id'] == i][feature].values for i in ids_all]
     mapped_events, prior_list = fuse_and_map(all_series, average_series_1, event_template_1, ids_all, feature, rpt_pen)
     # The original sequence detects some breakpoints, used to select
     original_events = [event_detect(series, rpt_pen*0.4) for series in all_series] 
@@ -394,19 +395,11 @@ def process_one_feature(df_kept, y_df_kept, feature):
 
     # Process all samples and update df_feature
     for idx, series in enumerate(all_series):
-        filter_list, likelihood = process_mapped_events(all_series[idx], mapped_events[idx], original_events[idx])
+        filter_list, likelihood = process_mapped_events(all_series[idx], mapped_events[idx],  mapped_events[idx])
         prior = prior_list[idx]  # Gets the corresponding confidence value
         tmp = event_attributs(series, filter_list, prior, likelihood, feature)
         # Gets the label corresponding to the current id
-        idx+=1
-        row_index = y_df_kept.index[y_df_kept.iloc[:, 0] == idx][0]
-        matching_row = y_df_kept[y_df_kept.iloc[:, 0] == row_index]
-
-        # 如果找到了匹配的行，则提取第二列的值
-        if not matching_row.empty:
-            current_label = matching_row.iloc[0, 1]
-        else:
-            current_label = None  # 没有找到匹配的行
+        current_label = y_df.loc[idx, '0']
         
         # Add label to tmp DataFrame
         tmp['result'] = current_label
@@ -440,15 +433,7 @@ def process_one_feature(df_kept, y_df_kept, feature):
         plot_events(tmp, axis, selected_series[idx], feature, filter_list)
 
         # Gets the label corresponding to the current id
-        index_to_check = ids_all.index(ids_to_check[idx])
-        # 在 y_df_kept 中找到第一列等于 index_to_check 的行，并返回第二列的值
-        matching_row = y_df_kept[y_df_kept.iloc[:, 0] == index_to_check]
-        # 提取第二列的值
-        if not matching_row.empty:
-            current_label = matching_row.iloc[0, 1]
-        else:
-            current_label = None  # 如果没有找到匹配的行
-
+        current_label = y_df.loc[ids_all.index(ids_to_check[idx]), '0']
 
         # Add label information to the chart title
         # axis.set_title(f"ID: {ids_to_check[idx]}, Label: {current_label}")
@@ -479,7 +464,6 @@ root_path = 'assets/case1-lane_borrow/'
 df = pd.read_csv(root_path+'data_processed.csv')
 
 y_df = pd.read_csv(root_path+'features.csv')
-ids = list(y_df['id'])
 y_df = y_df[['id', 'result']]
 y_df = y_df.rename(columns={'id': ''})
 y_df = y_df.rename(columns={'result': '0'})
@@ -488,51 +472,26 @@ y_df = y_df.rename(columns={'result': '0'})
 feature_definitions = {
     'RelativeX' : "df['egoLaneOffset']-df['NPC1LaneOffset']",
 }
-GPT_iter = 1
+GPT_iter = 3
 df = compute_and_fill_features(df, feature_definitions)
 
 ### 3.Use default parameters
 df_proceed = pd.DataFrame()
 feature_list = [('RelativeX',1.5, 8)] 
 
-### 4. Evaluation
-feature_set = feature_list[0]
-k_fold = 3
-drop_len = len(ids) // k_fold
-list_ids = [[] for _ in range(k_fold)]  # 初始化list_ids为包含空列表的列表
+for i, feature_set in enumerate(feature_list):
+    df_feature = process_one_feature(df, y_df, feature_set)
+    df_feature.to_csv(root_path+'eval.csv', index=False)
+    # If it is not the first iteration and the new feature data box contains the "result" column, delete it
+    if i != 0 and 'result' in df_feature.columns:
+        df_feature = df_feature.drop(columns=['result'])
+    # If this is the first iteration, assign df_feature directly to df_proceed
+    if i == 0:
+        df_proceed = df_feature
+    else:
+        # Make sure your original data box and the new feature data box have the same index
+        df_feature = df_feature.set_index(df_proceed.index)
+        # Add the new feature data box to the end of the processed data box
+        df_proceed = pd.concat([df_proceed, df_feature], axis=1)
 
-for i in range(k_fold):     
-    # print("set(range(len(ids))): ",set(range(len(ids))))
-    # print("set(range(i * drop_len, (i + 1) * drop_len)): ",set(range(i * drop_len, (i + 1) * drop_len)))
-    list_ids[i] = list(set(range(len(ids))) - set(range(i * drop_len, (i + 1) * drop_len)))
-    # print(f"保留的索引列表(实验 {i+1}): {list_ids[i]}")
-    # print(df.columns)
-    # print(y_df.columns)
-    df_kept = df[df['id'].isin(list_ids[i])]
-
-    # 执行过滤
-    y_df_kept = y_df[y_df.iloc[:, 0].isin(list_ids[i])]
-
-    # 打印过滤后的列信息
-    df_kept['id'] = df_kept['id'] - (df_kept['id'].min() - 1)
-    y_df_kept.iloc[:, 0] = y_df_kept.iloc[:, 0] - (y_df_kept.iloc[:, 0].min() - 1)
-    df_feature = process_one_feature(df_kept, y_df_kept, feature_set)  # 运行您的函数
-    print(f"实验 {i+1} 的结果:\n{df_feature}")
-    df_feature.to_csv(root_path+'eval'+str(i+1)+'.csv', index=False)
-
-
-# for i, feature_set in enumerate(feature_list):
-#     df_feature = process_one_feature(df, y_df, feature_set)
-#     # If it is not the first iteration and the new feature data box contains the "result" column, delete it
-#     if i != 0 and 'result' in df_feature.columns:
-#         df_feature = df_feature.drop(columns=['result'])
-#     # If this is the first iteration, assign df_feature directly to df_proceed
-#     if i == 0:
-#         df_proceed = df_feature
-#     else:
-#         # Make sure your original data box and the new feature data box have the same index
-#         df_feature = df_feature.set_index(df_proceed.index)
-#         # Add the new feature data box to the end of the processed data box
-#         df_proceed = pd.concat([df_proceed, df_feature], axis=1)
-
-# df_proceed.to_csv(root_path+str(GPT_iter)+'event_extracted.csv', index=False)
+df_proceed.to_csv(root_path+str(GPT_iter)+'event_extracted.csv', index=False)
