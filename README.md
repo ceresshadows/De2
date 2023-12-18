@@ -4,7 +4,7 @@
 
 Create conda environment:
 ```
-conda create --name ADAPT python=3.7.6
+conda create --name de2 python=3.7.6
 ```
 
 Then install other dependency:
