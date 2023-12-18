@@ -457,41 +457,42 @@ def compute_and_fill_features(df, feature_definitions):
         df[feature_name] = fill_series(df[feature_name])
     return df
 
-# Read data
-### 1.edit root_path
-root_path = 'assets/case2-fail_to_yield/'
 
-df = pd.read_csv(root_path+'data_processed.csv')
+if __name__=="__main__":
+    # Read data
+    ### 1.edit root_path
+    root_path = 'assets/case0-npc_cut_in/'
 
-y_df = pd.read_csv(root_path+'features.csv')
-y_df = y_df[['id', 'result']]
-y_df = y_df.rename(columns={'id': ''})
-y_df = y_df.rename(columns={'result': '0'})
+    df = pd.read_csv(root_path+'data_processed.csv')
 
-### 2.interface with LLM agent
-feature_definitions = {
-    'RelativeAngle' : "df['heading']-df['NPC1Theta']",
-}
-GPT_iter = 1
-df = compute_and_fill_features(df, feature_definitions)
+    y_df = pd.read_csv(root_path+'features.csv')
+    y_df = y_df[['id', 'result']]
+    y_df = y_df.rename(columns={'id': ''})
+    y_df = y_df.rename(columns={'result': '0'})
 
-### 3.Use default parameters
-df_proceed = pd.DataFrame()
-feature_list = [('RelativeAngle', 5, 20)] #1.5, 8
+    ### 2.interface with LLM agent
+    feature_definitions = {
+        'RelativeAngle' : "df['heading']-df['NPC1Theta']",
+    }
+    GPT_iter = 1
+    df = compute_and_fill_features(df, feature_definitions)
 
-for i, feature_set in enumerate(feature_list):
-    df_feature = process_one_feature(df, y_df, feature_set)
-    df_feature.to_csv(root_path+'eval.csv', index=False)
-    # If it is not the first iteration and the new feature data box contains the "result" column, delete it
-    if i != 0 and 'result' in df_feature.columns:
-        df_feature = df_feature.drop(columns=['result'])
-    # If this is the first iteration, assign df_feature directly to df_proceed
-    if i == 0:
-        df_proceed = df_feature
-    else:
-        # Make sure your original data box and the new feature data box have the same index
-        df_feature = df_feature.set_index(df_proceed.index)
-        # Add the new feature data box to the end of the processed data box
-        df_proceed = pd.concat([df_proceed, df_feature], axis=1)
+    ### 3.Use default parameters
+    df_proceed = pd.DataFrame()
+    feature_list = [('NPC1Theta', 3, 15)] #1.5, 8
 
-df_proceed.to_csv(root_path+str(GPT_iter)+'event_extracted.csv', index=False)
+    for i, feature_set in enumerate(feature_list):
+        df_feature = process_one_feature(df, y_df, feature_set)
+        # If it is not the first iteration and the new feature data box contains the "result" column, delete it
+        if i != 0 and 'result' in df_feature.columns:
+            df_feature = df_feature.drop(columns=['result'])
+        # If this is the first iteration, assign df_feature directly to df_proceed
+        if i == 0:
+            df_proceed = df_feature
+        else:
+            # Make sure your original data box and the new feature data box have the same index
+            df_feature = df_feature.set_index(df_proceed.index)
+            # Add the new feature data box to the end of the processed data box
+            df_proceed = pd.concat([df_proceed, df_feature], axis=1)
+
+    df_proceed.to_csv(root_path+str(GPT_iter)+'event_extracted.csv', index=False)

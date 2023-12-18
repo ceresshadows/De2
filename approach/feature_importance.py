@@ -3,14 +3,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import accuracy_score
 import re
-from sklearn.inspection import permutation_importance
 
 ### Change the path
-root_path='assets/case1-lane_borrow/'
-GPT_iter = 3
+root_path='assets/case0-npc_cut_in/'
+GPT_iter = 1
 
 # Read data
 df = pd.read_csv(root_path+str(GPT_iter)+'event_extracted.csv')
